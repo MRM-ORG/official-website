@@ -1,0 +1,257 @@
+.main {
+  position: fixed;
+  display: flex;
+  padding: 10px 0;
+  width: 100%;
+  background-color: var(--white);
+  justify-content: center;
+  z-index: 9999;
+  box-shadow: 0 5px 35px rgba(30, 34, 40, 0.15);
+}
+
+.logoContainer {
+  gap: 10px;
+  width: 250px;
+  display: flex;
+  font-size: 13px;
+  font-weight: 700;
+  align-items: flex-end;
+  color: var(--primary);
+}
+
+.navMenuFlex {
+  min-width: 80%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.wNavBrand {
+  float: left;
+  color: #333;
+  text-decoration: none;
+  position: relative;
+}
+
+.navMenu {
+  z-index: 1;
+  margin: 0;
+  width: 100%;
+  grid-column-gap: 50px;
+  grid-row-gap: 20px;
+  justify-content: center;
+  align-items: center;
+  padding-bottom: 0;
+  padding-left: 0;
+  display: flex;
+}
+
+.navLink {
+  color: #343f52;
+  align-items: center;
+  margin-left: 20px;
+  margin-right: 0;
+  padding: 25px 0;
+  font-weight: 600;
+  text-decoration: none;
+  display: flex;
+  transition: color 300ms ease-out;
+}
+
+.activeNavLink {
+  color: var(--primary);
+}
+
+.navLink:hover {
+  color: var(--primary);
+}
+
+.wListUnstyled {
+  padding-left: 0;
+  list-style: none;
+}
+
+.navbarButtonWrapper {
+  flex: none;
+}
+
+.buttonCcSmall {
+  padding: 10px 22px;
+  text-decoration: none;
+}
+
+.button {
+  cursor: pointer;
+  border: none;
+  color: var(--white);
+  text-align: center;
+  object-fit: fill;
+  background-color: var(--primary);
+  border-radius: 8px;
+  flex: none;
+  align-self: flex-start;
+  padding: 12px 24px;
+  font-size: 17px;
+  font-weight: 600;
+  line-height: 1.7;
+  transition: all 0.2s ease-in-out;
+}
+
+.button:hover {
+  border-color: var(--primary);
+  box-shadow: 0 5px 15px rgba(30, 34, 40, 0.15);
+}
+
+.navbarInnerMobile {
+  flex-direction: column;
+  align-items: center;
+  display: none;
+  top: 0%;
+  bottom: auto;
+  left: 0%;
+  right: 0%;
+  z-index: 3;
+  position: fixed;
+  width: 100%;
+  background-color: var(--white);
+  box-shadow: 0 5px 35px rgba(30, 34, 40, 0.15);
+}
+
+.container {
+  z-index: 2;
+  width: 100%;
+  height: 100%;
+  max-width: 1290px;
+  min-height: 30px;
+  margin-left: auto;
+  margin-right: auto;
+  padding-left: 50px;
+  padding-right: 50px;
+  position: relative;
+}
+
+.navbarWrapperMobile {
+  justify-content: space-between;
+  align-items: center;
+  display: none;
+}
+
+.wNavButton {
+  float: right;
+  cursor: pointer;
+  -webkit-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  padding: 18px;
+  font-size: 24px;
+  display: none;
+  position: relative;
+}
+
+.divider {
+  border: 0.1px solid rgba(164, 174, 198, 0.2);
+  margin: 15px 0;
+}
+
+@media (max-width: 1020px) {
+  .main {
+    padding: 0;
+  }
+
+  .navMenuFlexMobile {
+    position: absolute;
+    width: 100%;
+    flex-direction: column;
+    padding: 30px 40px;
+    padding-bottom: 22px;
+    background-color: var(--primary-dark);
+    transition: transform 300ms ease-out;
+  }
+
+  .navLinkMobile {
+    height: auto;
+    min-width: 100%;
+    display: inline-block;
+    color: var(--white);
+    padding: 6px 0;
+    margin-left: 25px;
+    font-size: 16px;
+    text-decoration: none;
+    transition: opacity 200ms ease-in-out;
+  }
+
+  .navLinkMobile:hover {
+    color: var(--primary);
+  }
+
+  .navMenu li {
+    height: 30px;
+  }
+
+  .navMenu {
+    display: none;
+  }
+
+  .navMenuOpen {
+    display: block;
+  }
+
+  .navMenuFlex {
+    display: none;
+  }
+
+  .navMenuWrapperMobile {
+    background-color: var(--text-primary);
+    display: block;
+    width: 100%;
+    z-index: 1;
+    position: absolute;
+    margin: 0 auto;
+    transform: translateY(50%);
+  }
+
+  .navbarInnerMobile {
+    z-index: 4;
+    display: flex;
+    align-items: center;
+  }
+
+  .container {
+    z-index: 10;
+    padding-left: 0;
+    padding-right: 0;
+    background: white;
+  }
+
+  .navbarWrapperMobile {
+    display: flex;
+    padding: 0 10px;
+  }
+
+  .navbarBrandMobile {
+    padding-left: 0;
+    padding-top: 24px;
+    padding-bottom: 24px;
+    display: flex;
+  }
+
+  .wNavButton {
+    display: block;
+  }
+
+  .menuButton {
+    margin-left: 10px;
+    padding: 0;
+    user-select: text;
+    -webkit-user-select: text;
+  }
+
+  .burgerLine {
+    width: 25px;
+    height: 3px;
+    background-color: var(--text-primary);
+    margin-top: 5px;
+    margin-bottom: 5px;
+    transition: transform 300ms ease-out;
+  }
+}

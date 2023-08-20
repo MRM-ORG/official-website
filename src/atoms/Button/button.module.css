@@ -1,0 +1,39 @@
+.button {
+  text-align: center;
+  object-fit: fill;
+  /* Gradient */
+  background-image: var(--gradient-primary);
+  border-radius: 8px;
+  flex: none;
+  align-self: flex-start;
+  text-decoration: none;
+  padding: 16px 35px 15px;
+  font-size: 15px;
+  font-weight: 500;
+  line-height: 1.7;
+  width: fit-content;
+  transition: all 0.2s ease-in-out;
+}
+
+.button a {
+  color: var(--white);
+  text-decoration: none;
+}
+
+.button:hover {
+  border-color: var(--primary);
+  transform: translate(0, -3px);
+  box-shadow: 0 5px 15px rgba(30, 34, 40, 0.15);
+}
+
+@media screen and (max-width: 991px) {
+  .button {
+    position: relative;
+  }
+}
+
+@media screen and (max-width: 479px) {
+  .hero {
+    padding-bottom: 20px;
+  }
+}

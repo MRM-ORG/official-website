@@ -1,0 +1,21 @@
+:root {
+  --primary: #7431f8;
+  --primary-accent: #3f78e0;
+  --primary-soft: #f0f0f8;
+  --primary-dark: #130623;
+
+  --white: #fff;
+  --black: #000;
+
+  --text-primary: #343f52;
+  --text-second-primary: #60697b;
+  --text-secondary: #aab0bc;
+
+  --gradient-primary: linear-gradient(90deg, #5a95e7 0%, #8125b1 100%);
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
