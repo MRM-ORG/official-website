@@ -279,8 +279,8 @@ const REELS_CONFIG_1 = {
           medium: 1.6,
           large: 1.7,
         },
-        tablet: 3,
-        desktop: 5,
+        tablet: 3.7,
+        desktop: 3.65,
       },
     },
     overlay: {
@@ -313,8 +313,8 @@ const REELS_CONFIG_2 = {
           medium: 1.6,
           large: 1.7,
         },
-        tablet: 3,
-        desktop: 5,
+        tablet: 3.7,
+        desktop: 3.65,
       },
     },
     overlay: {

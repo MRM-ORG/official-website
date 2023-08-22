@@ -2,7 +2,7 @@ interface CustomWindow extends Window {
   reelsSettings?: any;
 }
 
-const COMMIT_HASH = "89fa7a272c4810a73e70364885dc1266797def37";
+const COMMIT_HASH = "304200bfbb3f148487d4c06817df145cc076105b";
 
 export const _loadReels = (props: any) => {
   const customizedWindow: CustomWindow = window;
@@ -11,8 +11,8 @@ export const _loadReels = (props: any) => {
   const _loadReelsScript = () => {
     const reelsScript = document.createElement("script");
     reelsScript.id = "reels-script";
-    // reelsScript.src = `https://cdn.jsdelivr.net/gh/MRM-ORG/builds@${COMMIT_HASH}/reelife/paxify-reelife.min.js`;
-    reelsScript.src = "/scripts/paxify-reelife.js";
+    reelsScript.src = `https://cdn.jsdelivr.net/gh/MRM-ORG/builds@${COMMIT_HASH}/reelife/paxify-reelife.min.js`;
+    // reelsScript.src = "/scripts/paxify-reelife.js";
 
     document.body.appendChild(reelsScript);
   };
