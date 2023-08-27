@@ -1,23 +1,48 @@
+import { REELS_CONFIG_1, REELS_CONFIG_2 } from "@/constants/config";
+
 interface CustomWindow extends Window {
-  reelsSettings?: any;
+  ReelsInitializer?: any;
 }
 
-const COMMIT_HASH = "304200bfbb3f148487d4c06817df145cc076105b";
+const COMMIT_HASH = "f2e63f56fa87ae08f82314ad799664a4fd44e85b";
 
-export const _loadReels = (props: any) => {
+const COMPONENTS = [
+  {
+    id: "paxify-app-id-1",
+    reelsSettings: REELS_CONFIG_1,
+  },
+  {
+    id: "paxify-app-id-2",
+    reelsSettings: REELS_CONFIG_2,
+  },
+];
+
+export const loadReels = (props?: any) => {
   const customizedWindow: CustomWindow = window;
-  customizedWindow.reelsSettings = props;
 
-  const _loadReelsScript = () => {
+  const loadReelsScript = () => {
     const reelsScript = document.createElement("script");
     reelsScript.id = "reels-script";
     reelsScript.src = `https://cdn.jsdelivr.net/gh/MRM-ORG/builds@${COMMIT_HASH}/reelife/paxify-reelife.min.js`;
     // reelsScript.src = "/scripts/paxify-reelife.js";
 
     document.body.appendChild(reelsScript);
+
+    reelsScript.onload = () => {
+      if (typeof customizedWindow.ReelsInitializer === "function") {
+        COMPONENTS.forEach((component) => {
+          // @ts-ignore
+          const reels = new ReelsInitializer({
+            elementId: component.id,
+            reelsSettings: component.reelsSettings,
+          });
+          reels.render();
+        });
+      }
+    };
   };
 
-  const _loadReelsStylesheet = () => {
+  const loadReelsStylesheet = () => {
     const stylesheet = document.createElement("link");
     stylesheet.id = "reels-stylesheet";
     stylesheet.setAttribute("rel", "stylesheet");
@@ -28,6 +53,6 @@ export const _loadReels = (props: any) => {
     document.head.appendChild(stylesheet);
   };
 
-  _loadReelsStylesheet();
-  _loadReelsScript();
+  loadReelsStylesheet();
+  loadReelsScript();
 };
