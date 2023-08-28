@@ -16,8 +16,8 @@ const socials = [
   },
   {
     alt: "facebook",
-    src: "./assets/socials/facebook-f.svg",
-    href: "https://facebook.com/paxify",
+    src: "./assets/socials/instagram.svg",
+    href: "https://instagram.com/paxifyy",
   },
 ];
 
@@ -55,8 +55,13 @@ const Footer: React.FC = () => {
                 </a>
               ))}
             </div>
+
             <div>
-              00 (123) 456 78 90
+              <a href="tel:0016187653638">(618) 765 3638</a>
+              <br />
+              <a href="mailto:support@paxify.io?subject=Support Request&body=Hello Paxify Support, I need help with...">
+                support@paxify.io
+              </a>
               <br /> 312 W 2nd St , Casper <br />
               82601, WY, Wyoming, United States
             </div>

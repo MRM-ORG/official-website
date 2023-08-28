@@ -80,8 +80,29 @@
   transition: box-shadow 0.5s ease-in-out;
 }
 
+.blurredCard {
+  filter: blur(5px);
+  pointer-events: none;
+  text-align: left;
+  border-radius: 12px;
+  flex-direction: column;
+  padding: 50px 80px 60px;
+  max-width: 350px;
+  background: var(--white);
+  height: 550px;
+}
+
 .card:hover {
   box-shadow: 0 5px 35px rgba(30, 34, 40, 0.3);
+}
+
+.pill {
+  padding: 2.5px 15px;
+  text-align: center;
+  font-size: 10px;
+  color: var(--white);
+  border-radius: 12px;
+  background: var(--green-shade);
 }
 
 .subscriptionLabel {
@@ -138,7 +159,7 @@
 }
 
 .chooseButton a {
-  font-weight: 600;
+  font-weight: 500;
   color: var(--white);
   text-decoration: none;
 }
@@ -153,7 +174,7 @@
   display: flex;
   font-size: 19px;
   align-items: center;
-  font-weight: 600;
+  font-weight: 500;
   margin-bottom: 30px;
 }
 

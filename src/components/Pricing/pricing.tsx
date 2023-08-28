@@ -3,6 +3,194 @@ import styles from "./pricing.module.css";
 import CheckMark from "@/vectors/CheckMark";
 import { USER_DASHBOARD } from "@/utils/routes";
 
+const SUBSCRIPTIONS_BLURRED = [
+  {
+    id: 1,
+    name: "Basic Plan",
+    price: 0,
+    comingSoon: false,
+    cta: {
+      label: "Sign Up!",
+      href: USER_DASHBOARD(),
+    },
+    features: [
+      {
+        id: 1,
+        label: (
+          <span>
+            Upto <strong>5</strong> Stories/ App
+          </span>
+        ),
+      },
+      {
+        id: 2,
+        label: (
+          <span>
+            <strong>2</strong> App Instance / Page
+          </span>
+        ),
+      },
+      {
+        id: 3,
+        label: (
+          <span>
+            Ability to customize <strong>1</strong> Store or Business
+          </span>
+        ),
+      },
+      {
+        id: 4,
+        label: (
+          <span>
+            Analytics and <strong>Tracking</strong>
+          </span>
+        ),
+      },
+      {
+        id: 5,
+        label: (
+          <span>
+            Rich <strong>customizations</strong>
+          </span>
+        ),
+      },
+      {
+        id: 6,
+        label: (
+          <span>
+            <strong>50K</strong> page views
+          </span>
+        ),
+      },
+      {
+        id: 7,
+        label: (
+          <span>
+            <strong>200K</strong> tracking events
+          </span>
+        ),
+      },
+      {
+        id: 8,
+        label: (
+          <span>
+            Support via <strong>email</strong>
+          </span>
+        ),
+      },
+      {
+        id: 9,
+        label: <span>Paxify Logo</span>,
+      },
+    ],
+  },
+  {
+    id: 2,
+    name: "Premium Plan",
+    price: "XX",
+    comingSoon: true,
+    cta: {
+      label: "Sign Up!",
+      href: USER_DASHBOARD(),
+    },
+    features: [
+      {
+        id: 1,
+        label: <span>XXXXXXXXXXXXXX</span>,
+      },
+      {
+        id: 2,
+        label: <span>XXXXXXXXXX</span>,
+      },
+      {
+        id: 3,
+        label: <span>XXXXXXXXXXXXXX</span>,
+      },
+      {
+        id: 4,
+        label: <span>XXXXXXXXXXXXXX</span>,
+      },
+      {
+        id: 5,
+        label: <span>XXXXXXXXXX</span>,
+      },
+      {
+        id: 6,
+        label: <span>XXXXXXXXXXXXXX</span>,
+      },
+      {
+        id: 7,
+        label: <span>XXXXXXXXXXXXXX</span>,
+      },
+      {
+        id: 8,
+        label: <span>XXXXXXXXXX</span>,
+      },
+      {
+        id: 9,
+        label: <span>XXXXXXXXXX</span>,
+      },
+      {
+        id: 10,
+        label: <span>XXXXXXXXXX</span>,
+      },
+    ],
+  },
+  {
+    id: 3,
+    name: "Enterprise Plan",
+    isEnterprise: false,
+    comingSoon: true,
+    price: "XX",
+    cta: {
+      label: "Contact Us!",
+      href: "mailto:support@paxify.io?subject=Enterprise Plan&body=Hi Paxify, I want to know more about your Enterprise Plan.",
+    },
+    features: [
+      {
+        id: 1,
+        label: <span>XXXXXXXXXXXXXX</span>,
+      },
+      {
+        id: 2,
+        label: <span>XXXXXXXXXXXXXX</span>,
+      },
+      {
+        id: 3,
+        label: <span>XXXXXXXXXX</span>,
+      },
+      {
+        id: 4,
+        label: <span>XXXXXXXXXXXXXX</span>,
+      },
+      {
+        id: 5,
+        label: <span>XXXXXXXXXXXXXX</span>,
+      },
+      {
+        id: 6,
+        label: <span>XXXXXXXXXXXXXX</span>,
+      },
+      {
+        id: 7,
+        label: <span>XXXXXXXXXX</span>,
+      },
+      {
+        id: 8,
+        label: <span>XXXXXXXXXXXXXX</span>,
+      },
+      {
+        id: 9,
+        label: <span>XXXXXXXXXX</span>,
+      },
+      {
+        id: 10,
+        label: <span>XXXXXXXXXX</span>,
+      },
+    ],
+  },
+];
+
 const SUBSCRIPTIONS = [
   {
     id: 1,
@@ -141,7 +329,7 @@ const SUBSCRIPTIONS = [
     price: "ASK FOR QUOTE",
     cta: {
       label: "Contact Us!",
-      href: "mailto:paxifydev@gmail.com?subject=Enterprise Plan&body=Hi Paxify, I want to know more about your Enterprise Plan.",
+      href: "mailto:support@paxify.io?subject=Enterprise Plan&body=Hi Paxify, I want to know more about your Enterprise Plan.",
     },
     features: [
       {
@@ -197,10 +385,17 @@ const Pricing: React.FC = () => {
           <h2 className={styles.heading}>Pricing Plan</h2>
         </div>
         <div className={styles.subscriptions}>
-          {SUBSCRIPTIONS.map((subscription) => (
-            <div key={subscription.id} className={styles.card}>
+          {SUBSCRIPTIONS_BLURRED.map((subscription) => (
+            <div
+              key={subscription.id}
+              className={
+                subscription.comingSoon ? styles.blurredCard : styles.card
+              }>
               <div className={styles.planName}>
                 <div>{subscription?.name}</div>
+                {subscription.id === 1 && (
+                  <div className={styles.pill}>FREE</div>
+                )}
               </div>
               <div className={styles.features}>
                 {subscription?.features.map((feature) => (
@@ -227,7 +422,9 @@ const Pricing: React.FC = () => {
                 )}
               </div>
               <div className={styles.chooseButton}>
-                <a href={subscription.cta.href}>{subscription.cta.label}</a>
+                <a href={subscription.cta.href} target="_blank">
+                  {subscription.cta.label}
+                </a>
               </div>
             </div>
           ))}
