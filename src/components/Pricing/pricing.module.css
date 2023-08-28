@@ -97,7 +97,7 @@
 }
 
 .pill {
-  padding: 2.5px 15px;
+  padding: 0 25px;
   text-align: center;
   font-size: 10px;
   color: var(--white);

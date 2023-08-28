@@ -21,6 +21,7 @@ const SUBSCRIPTIONS_BLURRED = [
             Upto <strong>5</strong> Stories/ App
           </span>
         ),
+        neutralFeature: false,
       },
       {
         id: 2,
@@ -29,6 +30,7 @@ const SUBSCRIPTIONS_BLURRED = [
             <strong>2</strong> App Instance / Page
           </span>
         ),
+        neutralFeature: false,
       },
       {
         id: 3,
@@ -37,6 +39,7 @@ const SUBSCRIPTIONS_BLURRED = [
             Ability to customize <strong>1</strong> Store or Business
           </span>
         ),
+        neutralFeature: false,
       },
       {
         id: 4,
@@ -45,6 +48,7 @@ const SUBSCRIPTIONS_BLURRED = [
             Analytics and <strong>Tracking</strong>
           </span>
         ),
+        neutralFeature: false,
       },
       {
         id: 5,
@@ -53,6 +57,7 @@ const SUBSCRIPTIONS_BLURRED = [
             Rich <strong>customizations</strong>
           </span>
         ),
+        neutralFeature: false,
       },
       {
         id: 6,
@@ -61,6 +66,7 @@ const SUBSCRIPTIONS_BLURRED = [
             <strong>50K</strong> page views
           </span>
         ),
+        neutralFeature: false,
       },
       {
         id: 7,
@@ -69,6 +75,7 @@ const SUBSCRIPTIONS_BLURRED = [
             <strong>200K</strong> tracking events
           </span>
         ),
+        neutralFeature: false,
       },
       {
         id: 8,
@@ -77,10 +84,12 @@ const SUBSCRIPTIONS_BLURRED = [
             Support via <strong>email</strong>
           </span>
         ),
+        neutralFeature: false,
       },
       {
         id: 9,
-        label: <span>Paxify Logo</span>,
+        label: <span>Reelife Logo</span>,
+        neutralFeature: true,
       },
     ],
   },
@@ -97,42 +106,52 @@ const SUBSCRIPTIONS_BLURRED = [
       {
         id: 1,
         label: <span>XXXXXXXXXXXXXX</span>,
+        neutralFeature: false,
       },
       {
         id: 2,
         label: <span>XXXXXXXXXX</span>,
+        neutralFeature: false,
       },
       {
         id: 3,
         label: <span>XXXXXXXXXXXXXX</span>,
+        neutralFeature: false,
       },
       {
         id: 4,
         label: <span>XXXXXXXXXXXXXX</span>,
+        neutralFeature: false,
       },
       {
         id: 5,
         label: <span>XXXXXXXXXX</span>,
+        neutralFeature: false,
       },
       {
         id: 6,
         label: <span>XXXXXXXXXXXXXX</span>,
+        neutralFeature: false,
       },
       {
         id: 7,
         label: <span>XXXXXXXXXXXXXX</span>,
+        neutralFeature: false,
       },
       {
         id: 8,
         label: <span>XXXXXXXXXX</span>,
+        neutralFeature: false,
       },
       {
         id: 9,
         label: <span>XXXXXXXXXX</span>,
+        neutralFeature: false,
       },
       {
         id: 10,
         label: <span>XXXXXXXXXX</span>,
+        neutralFeature: false,
       },
     ],
   },
@@ -150,42 +169,52 @@ const SUBSCRIPTIONS_BLURRED = [
       {
         id: 1,
         label: <span>XXXXXXXXXXXXXX</span>,
+        neutralFeature: false,
       },
       {
         id: 2,
         label: <span>XXXXXXXXXXXXXX</span>,
+        neutralFeature: false,
       },
       {
         id: 3,
         label: <span>XXXXXXXXXX</span>,
+        neutralFeature: false,
       },
       {
         id: 4,
         label: <span>XXXXXXXXXXXXXX</span>,
+        neutralFeature: false,
       },
       {
         id: 5,
         label: <span>XXXXXXXXXXXXXX</span>,
+        neutralFeature: false,
       },
       {
         id: 6,
         label: <span>XXXXXXXXXXXXXX</span>,
+        neutralFeature: false,
       },
       {
         id: 7,
         label: <span>XXXXXXXXXX</span>,
+        neutralFeature: false,
       },
       {
         id: 8,
         label: <span>XXXXXXXXXXXXXX</span>,
+        neutralFeature: false,
       },
       {
         id: 9,
         label: <span>XXXXXXXXXX</span>,
+        neutralFeature: false,
       },
       {
         id: 10,
         label: <span>XXXXXXXXXX</span>,
+        neutralFeature: false,
       },
     ],
   },
@@ -400,12 +429,18 @@ const Pricing: React.FC = () => {
               <div className={styles.features}>
                 {subscription?.features.map((feature) => (
                   <div key={feature.id} className={styles.feature}>
-                    <CheckMark />
+                    {feature?.neutralFeature ? (
+                      <CheckMark neutral />
+                    ) : (
+                      <CheckMark />
+                    )}
                     {feature?.label}
                   </div>
                 ))}
               </div>
-              <div className={styles.subscriptionLabel}>
+              <div
+                className={styles.subscriptionLabel}
+                style={subscription.comingSoon ? { opacity: 0 } : {}}>
                 <div
                   className={
                     subscription.isEnterprise

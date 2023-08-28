@@ -13,7 +13,7 @@ const Demonstration: React.FC = () => {
         your audience&apos;s attention and make a lasting impression.
         <br />
         <br />
-        Embrace the power of ReeLife and revolutionize the way you connect with
+        Embrace the power of Reelife and revolutionize the way you connect with
         your visitors.
         <br />
         <br />
