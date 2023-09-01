@@ -83,3 +83,13 @@
   justify-content: center;
   background-color: rgba(200, 200, 200, 1);
 }
+
+@media (max-width: 768px) {
+  .chatSupport {
+    right: 0;
+  }
+
+  .chatSupportBar {
+    min-width: 150px;
+  }
+}

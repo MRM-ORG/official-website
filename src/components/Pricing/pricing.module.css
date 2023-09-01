@@ -69,11 +69,19 @@
   top: 180px;
 }
 
+.desktopPricing {
+  z-index: 0 !important;
+}
+
+.mobilePricing {
+  display: none;
+}
+
 .card {
   text-align: left;
   border-radius: 12px;
   flex-direction: column;
-  padding: 50px 80px 60px;
+  padding: 50px 40px 60px;
   max-width: 350px;
   background: var(--white);
   height: 550px;
@@ -112,6 +120,8 @@
   height: 50px;
   align-items: center;
   position: relative;
+  justify-content: center;
+  margin: 0 25px;
 }
 
 .standardText {
@@ -132,6 +142,7 @@
   gap: 5px;
   height: 350px;
   display: flex;
+  margin: 0 25px;
   flex-direction: column;
 }
 
@@ -149,6 +160,7 @@
 }
 
 .chooseButton {
+  color: var(--white);
   cursor: pointer;
   margin-top: 30px;
   padding: 15px 24px;
@@ -175,6 +187,7 @@
   font-size: 19px;
   align-items: center;
   font-weight: 500;
+  margin: 0 25px;
   margin-bottom: 30px;
 }
 
@@ -187,9 +200,21 @@
   background: var(--primary);
 }
 
+.modalComponent {
+  display: flex;
+  padding: 20px 0;
+  align-items: center;
+  justify-content: center;
+}
+
+.modalComponent .title {
+  font-size: 24px;
+  margin-bottom: 20px;
+}
+
 @media (max-width: 1200px) {
   .subscriptions {
-    flex-wrap: nowrap;
+    flex-wrap: wrap;
   }
 
   .center {
@@ -202,6 +227,16 @@
   .pricing {
     height: 100%;
     padding: 100px 10px;
+  }
+
+  .desktopPricing {
+    display: none !important;
+  }
+
+  .mobilePricing {
+    gap: 20px;
+    display: flex;
+    flex-direction: column;
   }
 
   .heading {

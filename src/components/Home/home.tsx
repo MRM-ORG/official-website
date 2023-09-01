@@ -3,12 +3,20 @@ import Button from "@/atoms/Button/button";
 import { poppins } from "@/utils/fonts";
 import PlayIcon from "@/vectors/PlayIcon";
 import Image from "next/image";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import styles from "./home.module.css";
 import { USER_DASHBOARD } from "@/utils/routes";
+import {
+  dataLayerPush,
+  getWebsiteLoadedTrackingPayload,
+} from "@/constants/helpers";
 
 const Home: React.FC = () => {
   const [openVideo, setOpenVideo] = useState(false);
+
+  useEffect(() => {
+    dataLayerPush(getWebsiteLoadedTrackingPayload());
+  }, []);
 
   return (
     <>

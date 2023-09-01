@@ -21,11 +21,6 @@ const Support = () => {
 
   const handleSubmit = (e: any) => {
     e.preventDefault();
-    // You can handle form submission here (e.g., send data to a server)
-    console.log("Name:", name);
-    console.log("Email:", email);
-    console.log("Content:", content);
-    // Reset form fields and close the form
     setName("");
     setEmail("");
     setContent("");
