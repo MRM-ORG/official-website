@@ -67,10 +67,15 @@
   justify-content: center;
   position: absolute;
   top: 180px;
+  max-width: 100%;
 }
 
 .desktopPricing {
+  overflow-x: scroll !important;
   z-index: 0 !important;
+
+  scrollbar-width: none;
+  -ms-overflow-style: none;
 }
 
 .mobilePricing {

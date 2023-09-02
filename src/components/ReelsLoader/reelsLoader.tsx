@@ -4,7 +4,7 @@ interface CustomWindow extends Window {
   ReelsInitializer?: any;
 }
 
-const COMMIT_HASH = "f2e63f56fa87ae08f82314ad799664a4fd44e85b";
+const COMMIT_HASH = "0a8fe586eaa8b6b663f17fbb7abfbdd58a9fd2fc";
 
 const COMPONENTS = [
   {
