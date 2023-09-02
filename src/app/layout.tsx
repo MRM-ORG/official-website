@@ -14,6 +14,24 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
+      <head>
+        <script
+          id="gtag"
+          async
+          src="https://www.googletagmanager.com/gtag/js?id=G-SW6JRKP2YD"></script>
+        <script
+          id="ga-data"
+          dangerouslySetInnerHTML={{
+            __html: `
+                window.dataLayer = window.dataLayer || [];
+                function gtag(){dataLayer.push(arguments);}
+                gtag('js', new Date());
+
+                gtag('config', 'G-SW6JRKP2YD');
+              `,
+          }}
+        />
+      </head>
       <body style={{ margin: 0 }} id="body">
         <Header />
         {children}
