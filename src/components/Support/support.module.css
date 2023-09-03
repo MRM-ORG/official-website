@@ -11,6 +11,34 @@
   font-family: sans-serif;
 }
 
+.options {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+}
+
+.option {
+  width: 100%;
+  cursor: pointer;
+  border: 1px solid var(--primary);
+  padding: 10px 0;
+  text-align: center;
+  border-radius: 12px;
+  transition: all 0.4s ease-in-out;
+}
+
+.option:hover {
+  background-color: var(--primary);
+  color: white;
+}
+
+.buttonGroup {
+  gap: 10px;
+  display: flex;
+}
+
 .chatSupportBar {
   background-color: var(--primary);
   color: white;
@@ -53,17 +81,20 @@
   font-family: inherit;
 }
 
-.chatSupportForm button {
+.button {
   background-color: var(--primary);
   color: white;
   border: none;
   padding: 5px 10px;
   cursor: pointer;
   border-radius: 3px;
+  padding: 10px;
+  font-family: inherit;
 }
 
-.submit {
-  font-family: inherit;
+.backButton {
+  color: var(--black);
+  background-color: var(--primary-soft);
 }
 
 .mailSent {
