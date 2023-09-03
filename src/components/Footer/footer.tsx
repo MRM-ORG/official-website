@@ -57,13 +57,13 @@ const Footer: React.FC = () => {
             </div>
 
             <div>
-              <a href="tel:0016187653638">(618) 765 3638</a>
+              <a href="tel:0016187653638">+1 (618) 765 3638</a>
               <br />
               <a href="mailto:support@paxify.io?subject=Support Request&body=Hello Paxify Support, I need help with...">
                 support@paxify.io
               </a>
-              <br /> 312 W 2nd St , Casper <br />
-              82601, WY, Wyoming, United States
+              <br /> 312 W 2nd St, Casper <br />
+              Wyoming, WY 82601, United States
             </div>
           </div>
         </div>

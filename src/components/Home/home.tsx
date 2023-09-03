@@ -6,16 +6,14 @@ import Image from "next/image";
 import { useEffect, useState } from "react";
 import styles from "./home.module.css";
 import { USER_DASHBOARD } from "@/utils/routes";
-import {
-  dataLayerPush,
-  getWebsiteLoadedTrackingPayload,
-} from "@/constants/helpers";
+import { dataLayerPush, getEventPayload } from "@/constants/helpers";
+import { Events } from "@/enums/events";
 
 const Home: React.FC = () => {
   const [openVideo, setOpenVideo] = useState(false);
 
   useEffect(() => {
-    dataLayerPush(getWebsiteLoadedTrackingPayload());
+    dataLayerPush(getEventPayload(Events.LOADED));
   }, []);
 
   return (

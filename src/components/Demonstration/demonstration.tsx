@@ -18,12 +18,9 @@ const Demonstration: React.FC = () => {
         <br />
         <br />
       </div>
-      <iframe
-        className={styles.iframe}
-        src="https://youtube.com/embed/OAjnvbjqd5c"
-        title="Demonstration Video"
-        allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
-        allowFullScreen></iframe>
+      <video className={styles.iframe} controls>
+        <source src="/assets/videos/product-intro.mp4" type="video/mp4" />
+      </video>
     </section>
   );
 };

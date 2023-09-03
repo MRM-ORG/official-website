@@ -33,11 +33,8 @@ export function dataLayerPush(event: any) {
   });
 }
 
-export const getWebsiteLoadedTrackingPayload = () => ({
-  event: Events.LOADED,
-  payload: {
-    name: Events.LOADED,
-    time: new Date().getTime(),
-    device: window.navigator.userAgent,
-  },
+export const getEventPayload = (event: Events) => ({
+  event: event,
+  time: new Date().getTime(),
+  device: window.navigator.userAgent,
 });

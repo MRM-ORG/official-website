@@ -5,6 +5,8 @@ import styles from "./support.module.css";
 import { poppins } from "@/utils/fonts";
 import ReactLoading from "react-loading";
 import { sendSupportEmail } from "@/actions/support";
+import { dataLayerPush, getEventPayload } from "@/constants/helpers";
+import { Events } from "@/enums/events";
 
 const Support = () => {
   const [isSent, setIsSent] = useState(false);
@@ -31,7 +33,10 @@ const Support = () => {
       email,
       content,
     })
-      .then((res) => console.log(res))
+      .then((res) => {
+        console.log(res);
+        dataLayerPush(getEventPayload(Events.LEAD_GENERATION));
+      })
       .catch((error) => {
         console.error(error);
       })
@@ -64,7 +69,7 @@ const Support = () => {
       ref={containerRef}
       className={`${styles.chatSupport} ${poppins.className}`}>
       <div className={styles.chatSupportBar} onClick={toggleForm}>
-        Need help? Get in touch!
+        Get in touch!
       </div>
       {isOpen && !isSent && (
         <form

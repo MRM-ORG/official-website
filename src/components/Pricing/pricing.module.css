@@ -83,6 +83,7 @@
 }
 
 .card {
+  margin: 5px;
   text-align: left;
   border-radius: 12px;
   flex-direction: column;
@@ -90,7 +91,7 @@
   max-width: 350px;
   background: var(--white);
   height: 550px;
-  transition: box-shadow 0.5s ease-in-out;
+  transition: all 0.5s ease-in-out;
 }
 
 .blurredCard {
@@ -106,7 +107,7 @@
 }
 
 .card:hover {
-  box-shadow: 0 5px 35px rgba(30, 34, 40, 0.3);
+  box-shadow: 0 5px 35px rgba(30, 34, 40, 0.2);
 }
 
 .pill {

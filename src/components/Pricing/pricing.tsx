@@ -3,7 +3,7 @@
 import { poppins } from "@/utils/fonts";
 import styles from "./pricing.module.css";
 import CheckMark from "@/vectors/CheckMark";
-import { USER_DASHBOARD } from "@/utils/routes";
+import { DASHBOARD_SIGN_UP, USER_DASHBOARD } from "@/utils/routes";
 import ModalComponent from "../UI/Modal";
 import { useState } from "react";
 import { Swiper, SwiperSlide } from "swiper/react";
@@ -11,8 +11,10 @@ import { Pagination } from "swiper/modules";
 
 import "swiper/css";
 import "swiper/css/pagination";
+import { dataLayerPush, getEventPayload } from "@/constants/helpers";
+import { Events } from "@/enums/events";
 
-const SUBSCRIPTIONS: {
+interface ISubscription {
   id: number;
   name: string;
   isEnterprise?: boolean;
@@ -27,14 +29,16 @@ const SUBSCRIPTIONS: {
     label: JSX.Element;
     neutralFeature?: boolean;
   }[];
-}[] = [
+}
+
+const SUBSCRIPTIONS: ISubscription[] = [
   {
     id: 1,
     name: "Basic",
     price: 0,
     cta: {
       label: "Sign Up!",
-      href: USER_DASHBOARD(),
+      href: DASHBOARD_SIGN_UP(),
     },
     features: [
       {
@@ -273,11 +277,75 @@ const SUBSCRIPTIONS: {
   },
 ];
 
+const handleSignUpToDashboard = (cta: string) => {
+  window.open(cta, "_blank");
+  dataLayerPush(getEventPayload(Events.SIGN_UP));
+};
+
 const Pricing: React.FC = () => {
   const [modal, setModal] = useState({
     open: false,
     plan: -1,
   });
+
+  const renderPriceCard = (props: any) => {
+    const { tag, subscription } = props;
+    const TagComponent = tag || "div";
+
+    return (
+      <TagComponent key={subscription.id} className={styles.card}>
+        <div className={styles.planName}>
+          <div>{subscription?.name}</div>
+          {subscription.id === 1 && <div className={styles.pill}>FREE</div>}
+        </div>
+        <div className={styles.features}>
+          {subscription?.features.map((feature: any) => (
+            <div key={feature.id} className={styles.feature}>
+              {feature?.neutralFeature ? <CheckMark neutral /> : <CheckMark />}
+              {feature?.label}
+            </div>
+          ))}
+        </div>
+        <div
+          className={styles.subscriptionLabel}
+          style={subscription?.comingSoon ? { opacity: 0 } : {}}>
+          <div
+            className={
+              subscription.isEnterprise ? styles.standardText : styles.price
+            }>
+            {!subscription.isEnterprise && (
+              <div className={styles.priceLabel}>USD</div>
+            )}
+            {subscription?.price}
+          </div>
+          {!subscription?.isEnterprise && (
+            <div className={styles.priceFrequency}>Per month</div>
+          )}
+        </div>
+        <div>
+          {subscription.id === 1 && (
+            <div
+              className={styles.chooseButton}
+              onClick={() => handleSignUpToDashboard(subscription.cta.href)}>
+              {subscription.cta.label}
+            </div>
+          )}
+          {subscription.id !== 1 && (
+            <div
+              className={styles.chooseButton}
+              onClick={() =>
+                setModal({
+                  open: true,
+                  plan: subscription.id,
+                })
+              }>
+              Learn More
+            </div>
+          )}
+        </div>
+      </TagComponent>
+    );
+  };
 
   return (
     <section id="pricing" className={`${styles.pricing} ${poppins.className}`}>
@@ -293,135 +361,20 @@ const Pricing: React.FC = () => {
             // modules={[Pagination]}
             className={styles.desktopPricing}
             pagination={{ clickable: true, dynamicBullets: true }}>
-            {SUBSCRIPTIONS.map((subscription) => (
-              <SwiperSlide key={subscription.id} className={styles.card}>
-                <div className={styles.planName}>
-                  <div>{subscription?.name}</div>
-                  {subscription.id === 1 && (
-                    <div className={styles.pill}>FREE</div>
-                  )}
-                </div>
-                <div className={styles.features}>
-                  {subscription?.features.map((feature) => (
-                    <div key={feature.id} className={styles.feature}>
-                      {feature?.neutralFeature ? (
-                        <CheckMark neutral />
-                      ) : (
-                        <CheckMark />
-                      )}
-                      {feature?.label}
-                    </div>
-                  ))}
-                </div>
-                <div
-                  className={styles.subscriptionLabel}
-                  style={subscription?.comingSoon ? { opacity: 0 } : {}}>
-                  <div
-                    className={
-                      subscription.isEnterprise
-                        ? styles.standardText
-                        : styles.price
-                    }>
-                    {!subscription.isEnterprise && (
-                      <div className={styles.priceLabel}>USD</div>
-                    )}
-                    {subscription?.price}
-                  </div>
-                  {!subscription?.isEnterprise && (
-                    <div className={styles.priceFrequency}>Per month</div>
-                  )}
-                </div>
-                <div>
-                  {subscription.id === 1 && (
-                    <div
-                      className={styles.chooseButton}
-                      onClick={() =>
-                        window.open(subscription.cta.href, "_blank")
-                      }>
-                      {subscription.cta.label}
-                    </div>
-                  )}
-                  {subscription.id !== 1 && (
-                    <div
-                      className={styles.chooseButton}
-                      onClick={() =>
-                        setModal({
-                          open: true,
-                          plan: subscription.id,
-                        })
-                      }>
-                      Learn More
-                    </div>
-                  )}
-                </div>
-              </SwiperSlide>
-            ))}
+            {SUBSCRIPTIONS.map((subscription) =>
+              renderPriceCard({
+                tag: SwiperSlide,
+                subscription,
+              })
+            )}
           </Swiper>
-
           <div className={styles.mobilePricing}>
-            {SUBSCRIPTIONS.map((subscription) => (
-              <div key={subscription.id} className={styles.card}>
-                <div className={styles.planName}>
-                  <div>{subscription?.name}</div>
-                  {subscription.id === 1 && (
-                    <div className={styles.pill}>FREE</div>
-                  )}
-                </div>
-                <div className={styles.features}>
-                  {subscription?.features.map((feature) => (
-                    <div key={feature.id} className={styles.feature}>
-                      {feature?.neutralFeature ? (
-                        <CheckMark neutral />
-                      ) : (
-                        <CheckMark />
-                      )}
-                      {feature?.label}
-                    </div>
-                  ))}
-                </div>
-                <div
-                  className={styles.subscriptionLabel}
-                  style={subscription?.comingSoon ? { opacity: 0 } : {}}>
-                  <div
-                    className={
-                      subscription.isEnterprise
-                        ? styles.standardText
-                        : styles.price
-                    }>
-                    {!subscription.isEnterprise && (
-                      <div className={styles.priceLabel}>USD</div>
-                    )}
-                    {subscription?.price}
-                  </div>
-                  {!subscription?.isEnterprise && (
-                    <div className={styles.priceFrequency}>Per month</div>
-                  )}
-                </div>
-                <div>
-                  {subscription.id === 1 && (
-                    <div
-                      className={styles.chooseButton}
-                      onClick={() =>
-                        window.open(subscription.cta.href, "_blank")
-                      }>
-                      {subscription.cta.label}
-                    </div>
-                  )}
-                  {subscription.id !== 1 && (
-                    <div
-                      className={styles.chooseButton}
-                      onClick={() =>
-                        setModal({
-                          open: true,
-                          plan: subscription.id,
-                        })
-                      }>
-                      Learn More
-                    </div>
-                  )}
-                </div>
-              </div>
-            ))}
+            {SUBSCRIPTIONS.map((subscription) =>
+              renderPriceCard({
+                tag: "div",
+                subscription,
+              })
+            )}
           </div>
         </div>
       </div>
