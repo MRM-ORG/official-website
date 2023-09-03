@@ -23,8 +23,9 @@ export const loadReels = (props?: any) => {
   const loadReelsScript = () => {
     const reelsScript = document.createElement("script");
     reelsScript.id = "reels-script";
-    reelsScript.src = `https://cdn.jsdelivr.net/gh/MRM-ORG/builds@${COMMIT_HASH}/reelife/paxify-reelife.min.js`;
-    // reelsScript.src = "/scripts/paxify-reelife.js";
+    // reelsScript.src = `https://cdn.jsdelivr.net/gh/MRM-ORG/builds@${COMMIT_HASH}/reelife/paxify-reelife.min.js`;
+    reelsScript.src =
+      "https://cdn.jsdelivr.net/gh/MRM-ORG/builds@main/reelife/paxify-reelife.min.js";
 
     document.body.appendChild(reelsScript);
 
