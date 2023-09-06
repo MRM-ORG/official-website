@@ -1,10 +1,9 @@
 import { REELS_CONFIG_1, REELS_CONFIG_2 } from "@/constants/config";
+import getConfig from "next/config";
 
 interface CustomWindow extends Window {
   ReelsInitializer?: any;
 }
-
-const COMMIT_HASH = "0a8fe586eaa8b6b663f17fbb7abfbdd58a9fd2fc";
 
 const COMPONENTS = [
   {
@@ -23,9 +22,9 @@ export const loadReels = (props?: any) => {
   const loadReelsScript = () => {
     const reelsScript = document.createElement("script");
     reelsScript.id = "reels-script";
-    // reelsScript.src = `https://cdn.jsdelivr.net/gh/MRM-ORG/builds@${COMMIT_HASH}/reelife/paxify-reelife.min.js`;
-    reelsScript.src =
-      "https://cdn.jsdelivr.net/gh/MRM-ORG/builds@main/reelife/paxify-reelife.min.js";
+    reelsScript.src = `https://cdn.jsdelivr.net/gh/MRM-ORG/builds@${process.env.NEXT_PUBLIC_REELS_VERSION}/reelife/paxify-reelife.min.js`;
+    // reelsScript.src =
+    //   "https://cdn.jsdelivr.net/gh/MRM-ORG/builds@main/reelife/paxify-reelife.min.js";
 
     document.body.appendChild(reelsScript);
 
@@ -49,7 +48,7 @@ export const loadReels = (props?: any) => {
     stylesheet.setAttribute("rel", "stylesheet");
     stylesheet.setAttribute(
       "href",
-      `https://cdn.jsdelivr.net/gh/MRM-ORG/builds@${COMMIT_HASH}/reelife/paxify-reelife.min.css`
+      `https://cdn.jsdelivr.net/gh/MRM-ORG/builds@${process.env.NEXT_PUBLIC_REELS_VERSION}/reelife/paxify-reelife.min.css`
     );
     document.head.appendChild(stylesheet);
   };
