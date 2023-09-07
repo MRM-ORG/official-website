@@ -5,7 +5,7 @@ import styles from "./pricing.module.css";
 import CheckMark from "@/vectors/CheckMark";
 import { DASHBOARD_SIGN_UP, USER_DASHBOARD } from "@/utils/routes";
 import ModalComponent from "../UI/Modal";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Pagination } from "swiper/modules";
 
@@ -106,8 +106,9 @@ const SUBSCRIPTIONS: ISubscription[] = [
   },
   {
     id: 2,
-    name: "Premium",
-    price: 99,
+    name: "Pro",
+    comingSoon: true,
+    price: "XX",
     cta: {
       label: "Sign Up!",
       href: USER_DASHBOARD(),
@@ -146,18 +147,26 @@ const SUBSCRIPTIONS: ISubscription[] = [
         ),
       },
       {
-        id: 5,
-        label: (
-          <span>
-            Add Stories on<strong>multiple</strong> pages of your website
-          </span>
-        ),
-      },
-      {
         id: 6,
         label: (
           <span>
             <strong>1M</strong> page views
+          </span>
+        ),
+      },
+      {
+        id: 7,
+        label: (
+          <span>
+            <strong>Priority</strong> email support
+          </span>
+        ),
+      },
+      {
+        id: 8,
+        label: (
+          <span>
+            <strong>No</strong> Paxify branding
           </span>
         ),
       },
@@ -165,8 +174,9 @@ const SUBSCRIPTIONS: ISubscription[] = [
   },
   {
     id: 2,
-    name: "Premium Plus",
-    price: 299,
+    name: "Pro Plus",
+    comingSoon: true,
+    price: "XX",
     cta: {
       label: "Sign Up!",
       href: USER_DASHBOARD(),
@@ -176,7 +186,7 @@ const SUBSCRIPTIONS: ISubscription[] = [
         id: 1,
         label: (
           <span>
-            <strong>Unlimited</strong> Stories
+            <strong>Everything</strong> in Pro Plan
           </span>
         ),
       },
@@ -184,7 +194,7 @@ const SUBSCRIPTIONS: ISubscription[] = [
         id: 2,
         label: (
           <span>
-            Deeper <strong>insights</strong> & <strong>analytics</strong>
+            <strong>Automatic</strong> publishing of your stories
           </span>
         ),
       },
@@ -192,23 +202,15 @@ const SUBSCRIPTIONS: ISubscription[] = [
         id: 3,
         label: (
           <span>
-            Ability to customize <strong>1</strong> Store or Business
+            Generate stories using <strong>AI</strong>
           </span>
         ),
       },
       {
-        id: 4,
+        id: 3,
         label: (
           <span>
-            <strong>Customization</strong> to match your brand
-          </span>
-        ),
-      },
-      {
-        id: 5,
-        label: (
-          <span>
-            Add Stories on<strong>multiple</strong> pages of your website
+            Ability to customize<strong>2</strong> Stores or Business
           </span>
         ),
       },
@@ -216,7 +218,15 @@ const SUBSCRIPTIONS: ISubscription[] = [
         id: 6,
         label: (
           <span>
-            <strong>1M</strong> page views
+            <strong>2M</strong> page views
+          </span>
+        ),
+      },
+      {
+        id: 7,
+        label: (
+          <span>
+            <strong>Dedicated</strong> email support
           </span>
         ),
       },
@@ -226,6 +236,7 @@ const SUBSCRIPTIONS: ISubscription[] = [
     id: 4,
     name: "Enterprise",
     isEnterprise: true,
+    comingSoon: true,
     price: "ASK FOR QUOTE",
     cta: {
       label: "Contact Us!",
@@ -306,20 +317,23 @@ const Pricing: React.FC = () => {
             </div>
           ))}
         </div>
-        <div
-          className={styles.subscriptionLabel}
-          style={subscription?.comingSoon ? { opacity: 0 } : {}}>
-          <div
-            className={
-              subscription.isEnterprise ? styles.standardText : styles.price
-            }>
-            {!subscription.isEnterprise && (
-              <div className={styles.priceLabel}>USD</div>
-            )}
-            {subscription?.price}
-          </div>
-          {!subscription?.isEnterprise && (
+        <div className={styles.subscriptionLabel}>
+          {!subscription.comingSoon && (
+            <div
+              className={
+                subscription.isEnterprise ? styles.standardText : styles.price
+              }>
+              {!subscription.isEnterprise && (
+                <div className={styles.priceLabel}>USD</div>
+              )}
+              {subscription?.price}
+            </div>
+          )}
+          {!subscription?.isEnterprise && !subscription.comingSoon && (
             <div className={styles.priceFrequency}>Per month</div>
+          )}
+          {subscription.comingSoon && (
+            <div className={styles.comingSoon}>Coming Soon</div>
           )}
         </div>
         <div>
@@ -346,6 +360,11 @@ const Pricing: React.FC = () => {
       </TagComponent>
     );
   };
+
+  useEffect(() => {
+    const pricing = document.getElementsByClassName(styles.desktopPricing);
+    pricing[0].scrollLeft = 500;
+  }, []);
 
   return (
     <section id="pricing" className={`${styles.pricing} ${poppins.className}`}>
@@ -387,7 +406,9 @@ const Pricing: React.FC = () => {
           });
         }}>
         <div className={`${styles.modalComponent} ${poppins.className}`}>
-          <div className={styles.title}>🚀 Coming Soon...</div>
+          <div className={styles.title}>
+            🚀 Be the first to know when we launch this plan 🚀
+          </div>
         </div>
       </ModalComponent>
     </section>
