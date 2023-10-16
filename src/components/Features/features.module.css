@@ -3,6 +3,8 @@
   padding: 120px 0;
   display: flex;
   flex-direction: column;
+  background: white;
+  position: relative;
   color: var(--text-primary);
 }
 

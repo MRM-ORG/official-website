@@ -213,14 +213,49 @@
 
 .modalComponent {
   display: flex;
-  padding: 20px 0;
+  padding: 20px;
+  text-align: center;
   align-items: center;
+  flex-direction: column;
   justify-content: center;
 }
 
 .modalComponent .title {
   font-size: 22px;
   margin-bottom: 20px;
+}
+
+.subscribe {
+  display: flex;
+  margin-top: 15px;
+  min-width: 300px;
+  border: 1px solid;
+  border-radius: 12px;
+}
+
+.subscribe input {
+  border: none;
+  flex-grow: 1;
+  padding: 12px;
+  border-radius: 15px;
+}
+
+.subscribe input:focus {
+  outline: none;
+}
+
+.subscribe button {
+  border: none;
+  color: white;
+  cursor: pointer;
+  padding: 0 15px;
+  border-left: 1px solid;
+  background: var(--primary);
+  border-radius: 0 10px 10px 0;
+}
+
+.subscribe button:hover {
+  background: var(--primary-accent);
 }
 
 @media (max-width: 1200px) {

@@ -19,7 +19,7 @@ const Demonstration: React.FC = () => {
         <br />
       </div>
       <video className={styles.iframe} controls>
-        <source src="/assets/videos/product-intro.mp4" type="video/mp4" />
+        <source src="/assets/videos/introduction.mp4" type="video/mp4" />
       </video>
     </section>
   );

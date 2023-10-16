@@ -35,7 +35,7 @@ const Home: React.FC = () => {
         <div className={styles.hero}>
           <div className={styles.heroImageWrapper}>
             <Image
-              src="/assets/banners/main.png"
+              src="/assets/banners/home.png"
               loading="lazy"
               width={1000}
               height={100}
@@ -43,7 +43,7 @@ const Home: React.FC = () => {
               alt="flux office"
               className={styles.heroImage}
             />
-            <div
+            {/* <div
               data-w-id="54174dcc-aea1-b483-3b76-af7c93538bcd"
               style={{ opacity: 1 }}
               onClick={() => setOpenVideo(true)}
@@ -58,7 +58,7 @@ const Home: React.FC = () => {
                   <PlayIcon />
                 </div>
               </a>
-            </div>
+            </div> */}
           </div>
           <div className={styles.container}>
             <div className={styles.heroGrid}>

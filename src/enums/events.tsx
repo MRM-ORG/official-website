@@ -3,4 +3,5 @@ export enum Events {
   LOADED = "websiteLoaded",
   LEAD_GENERATION = "generate_lead",
   SIGN_UP = "sign_up",
+  SUBSCRIBE = "subscribe",
 }

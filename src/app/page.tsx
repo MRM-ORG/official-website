@@ -2,12 +2,11 @@
 
 import Footer from "@/components/Footer/footer";
 import { Suspense, lazy, useEffect } from "react";
-import styles from "./page.module.css";
 import Support from "@/components/Support/support";
 import { GTM_HEAD_SCRIPT, GTM_BODY_IFRAME } from "@/constants/config";
+import Home from "@/components/Home/home";
+import Features from "@/components/Features/features";
 
-const Home = lazy(() => import("../components/Home/home"));
-const Features = lazy(() => import("../components/Features/features"));
 const Demonstration = lazy(
   () => import("../components/Demonstration/demonstration")
 );
@@ -47,7 +46,7 @@ export default function Main() {
   }, []);
 
   return (
-    <main className={styles.main}>
+    <main>
       <Home />
       <Features />
       <Support />

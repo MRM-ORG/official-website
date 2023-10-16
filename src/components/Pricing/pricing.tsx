@@ -7,12 +7,12 @@ import { DASHBOARD_SIGN_UP, USER_DASHBOARD } from "@/utils/routes";
 import ModalComponent from "../UI/Modal";
 import { useEffect, useState } from "react";
 import { Swiper, SwiperSlide } from "swiper/react";
-import { Pagination } from "swiper/modules";
 
 import "swiper/css";
 import "swiper/css/pagination";
 import { dataLayerPush, getEventPayload } from "@/constants/helpers";
 import { Events } from "@/enums/events";
+import { subscribeToNewsletter } from "@/actions/subscribe";
 
 interface ISubscription {
   id: number;
@@ -173,7 +173,7 @@ const SUBSCRIPTIONS: ISubscription[] = [
     ],
   },
   {
-    id: 2,
+    id: 3,
     name: "Pro Plus",
     comingSoon: true,
     price: "XX",
@@ -299,6 +299,8 @@ const Pricing: React.FC = () => {
     plan: -1,
   });
 
+  const [hasSubscribed, setHasSubscribed] = useState(false);
+
   const renderPriceCard = (props: any) => {
     const { tag, subscription } = props;
     const TagComponent = tag || "div";
@@ -366,6 +368,25 @@ const Pricing: React.FC = () => {
     pricing[0].scrollLeft = 500;
   }, []);
 
+  const handleSubscribe = (e: any) => {
+    e.preventDefault();
+    const email = e.target[0].value;
+    const body = {
+      email,
+      plan: SUBSCRIPTIONS[modal.plan - 1].name,
+    };
+    subscribeToNewsletter(body)
+      .then((res: any) => {
+        console.log(res);
+        dataLayerPush(getEventPayload(Events.SUBSCRIBE));
+        setHasSubscribed(true);
+      })
+      .catch((error: any) => {
+        console.error(error);
+        alert("Something went wrong. Please try again.");
+      });
+  };
+
   return (
     <section id="pricing" className={`${styles.pricing} ${poppins.className}`}>
       <div className={styles.content}>
@@ -406,10 +427,19 @@ const Pricing: React.FC = () => {
           });
         }}>
         <div className={`${styles.modalComponent} ${poppins.className}`}>
-          <div className={styles.title}>
-            🚀 Be the first to know when we launch this plan 🚀
-          </div>
+          <div className={styles.title}>🚀 Subscribe 🚀</div>
+          <div>Be the first to know when we launch this plan and more!</div>
+          <form onSubmit={handleSubscribe} className={styles.subscribe}>
+            <input required type="email" placeholder="Email" />
+            <button type="submit">Notify Me</button>
+          </form>
         </div>
+        {hasSubscribed && (
+          <div className={`${styles.modalComponent} ${poppins.className}`}>
+            <div className={styles.title}>Thank you for subscribing!</div>
+            <div>We will notify you when this plan is available.</div>
+          </div>
+        )}
       </ModalComponent>
     </section>
   );
