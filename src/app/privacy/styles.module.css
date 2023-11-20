@@ -1,0 +1,19 @@
+.container {
+  padding: 0 50px;
+  padding-top: 120px;
+  font-family: "Roboto", sans-serif;
+  margin-bottom: 50px;
+}
+
+.container h2,
+.container p {
+  margin: 0;
+  padding: 0;
+}
+
+@media (max-width: 768px) {
+  .container {
+    padding: 0 25px;
+    padding-top: 120px;
+  }
+}

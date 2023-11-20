@@ -57,6 +57,8 @@ const Footer: React.FC = () => {
             </div>
 
             <div>
+              <a href="/privacy">Privacy Policy</a>
+              <br />
               <a href="tel:0013237391571">+1 (323) 739 1571</a>
               <br />
               <a href="mailto:support@paxify.io?subject=Support Request&body=Hello Paxify Support, I need help with...">
