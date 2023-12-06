@@ -13,12 +13,14 @@ import "swiper/css/pagination";
 import { dataLayerPush, getEventPayload } from "@/constants/helpers";
 import { Events } from "@/enums/events";
 import { subscribeToNewsletter } from "@/actions/subscribe";
+import { createPaymentSession } from "@/actions/stripe";
 
 interface ISubscription {
   id: number;
   name: string;
   isEnterprise?: boolean;
   comingSoon?: boolean;
+  lookup?: any;
   price: number | string;
   cta: {
     label: string;
@@ -50,26 +52,10 @@ const SUBSCRIPTIONS: ISubscription[] = [
         ),
       },
       {
-        id: 2,
-        label: (
-          <span>
-            <strong>1</strong> Component
-          </span>
-        ),
-      },
-      {
-        id: 3,
-        label: (
-          <span>
-            Ability to customize <strong>1</strong> Store or Business
-          </span>
-        ),
-      },
-      {
         id: 4,
         label: (
           <span>
-            Limited <strong>tracking</strong>
+            Limited <strong>tracking</strong> & <strong>analytics</strong>
           </span>
         ),
       },
@@ -85,7 +71,7 @@ const SUBSCRIPTIONS: ISubscription[] = [
         id: 6,
         label: (
           <span>
-            <strong>50K</strong> page views
+            <strong>2K</strong> page views per month
           </span>
         ),
       },
@@ -106,9 +92,17 @@ const SUBSCRIPTIONS: ISubscription[] = [
   },
   {
     id: 2,
-    name: "Pro",
-    comingSoon: true,
-    price: "XX",
+    name: "Starter",
+    comingSoon: false,
+    price: "14.99",
+    lookup: {
+      monthly: {
+        lookupKey: "starter_plan_monthly",
+      },
+      yearly: {
+        lookupKey: "starter_plan_yearly",
+      },
+    },
     cta: {
       label: "Sign Up!",
       href: USER_DASHBOARD(),
@@ -118,23 +112,7 @@ const SUBSCRIPTIONS: ISubscription[] = [
         id: 1,
         label: (
           <span>
-            <strong>Unlimited</strong> Stories
-          </span>
-        ),
-      },
-      {
-        id: 2,
-        label: (
-          <span>
-            Deeper <strong>insights</strong> & <strong>analytics</strong>
-          </span>
-        ),
-      },
-      {
-        id: 3,
-        label: (
-          <span>
-            Ability to customize <strong>1</strong> Store or Business
+            Upto <strong>Unlimited</strong> Stories
           </span>
         ),
       },
@@ -142,7 +120,15 @@ const SUBSCRIPTIONS: ISubscription[] = [
         id: 4,
         label: (
           <span>
-            <strong>Customization</strong> to match your brand
+            Richer <strong>tracking</strong> & <strong>analytics</strong>
+          </span>
+        ),
+      },
+      {
+        id: 5,
+        label: (
+          <span>
+            Better <strong>customization</strong>
           </span>
         ),
       },
@@ -150,7 +136,7 @@ const SUBSCRIPTIONS: ISubscription[] = [
         id: 6,
         label: (
           <span>
-            <strong>1M</strong> page views
+            <strong>100K</strong> page views per month
           </span>
         ),
       },
@@ -158,59 +144,55 @@ const SUBSCRIPTIONS: ISubscription[] = [
         id: 7,
         label: (
           <span>
-            <strong>Priority</strong> email support
+            Priority support via <strong>email</strong>
           </span>
         ),
       },
       {
         id: 8,
-        label: (
-          <span>
-            <strong>No</strong> Paxify branding
-          </span>
-        ),
+        label: <span>No Paxify Branding</span>,
       },
     ],
   },
   {
     id: 3,
-    name: "Pro Plus",
-    comingSoon: true,
-    price: "XX",
+    name: "Professional",
+    comingSoon: false,
+    price: "24.99",
     cta: {
       label: "Sign Up!",
       href: USER_DASHBOARD(),
+    },
+    lookup: {
+      monthly: {
+        lookupKey: "pro_plan_monthly_1",
+      },
+      yearly: {
+        lookupKey: "pro_plan_yearly_2",
+      },
     },
     features: [
       {
         id: 1,
         label: (
           <span>
-            <strong>Everything</strong> in Pro Plan
+            Upto <strong>Unlimited</strong> Stories
           </span>
         ),
       },
       {
-        id: 2,
+        id: 4,
         label: (
           <span>
-            <strong>Automatic</strong> publishing of your stories
+            Richer <strong>tracking</strong> & <strong>analytics</strong>
           </span>
         ),
       },
       {
-        id: 3,
+        id: 5,
         label: (
           <span>
-            Generate stories using <strong>AI</strong>
-          </span>
-        ),
-      },
-      {
-        id: 3,
-        label: (
-          <span>
-            Ability to customize<strong>2</strong> Stores or Business
+            Unlimited <strong>customization</strong>
           </span>
         ),
       },
@@ -218,7 +200,7 @@ const SUBSCRIPTIONS: ISubscription[] = [
         id: 6,
         label: (
           <span>
-            <strong>2M</strong> page views
+            <strong>Unlimited</strong> page views per month
           </span>
         ),
       },
@@ -226,9 +208,13 @@ const SUBSCRIPTIONS: ISubscription[] = [
         id: 7,
         label: (
           <span>
-            <strong>Dedicated</strong> email support
+            Dedicated <strong>Slack</strong> support
           </span>
         ),
+      },
+      {
+        id: 8,
+        label: <span>No Paxify Branding</span>,
       },
     ],
   },
@@ -349,13 +335,22 @@ const Pricing: React.FC = () => {
           {subscription.id !== 1 && (
             <div
               className={styles.chooseButton}
-              onClick={() =>
-                setModal({
-                  open: true,
-                  plan: subscription.id,
-                })
-              }>
-              Learn More
+              onClick={() => {
+                subscription.id === 4 &&
+                  setModal({
+                    open: true,
+                    plan: subscription.id,
+                  });
+
+                subscription.id !== 4 &&
+                  createPaymentSession({
+                    lookupKey: subscription?.lookup?.monthly?.lookupKey,
+                    intendedPlan: subscription.name,
+                  }).then((res) => {
+                    window.location.href = res.url;
+                  });
+              }}>
+              {subscription.id === 4 ? "Learn More" : "Subscribe"}
             </div>
           )}
         </div>

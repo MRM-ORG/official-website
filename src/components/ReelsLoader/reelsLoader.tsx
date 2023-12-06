@@ -16,30 +16,23 @@ const COMPONENTS = [
   },
 ];
 
-export const loadReels = (props?: any) => {
+export const loadReels = (ui: boolean) => {
   const customizedWindow: CustomWindow = window;
 
   const loadReelsScript = () => {
-    const reelsScript = document.createElement("script");
-    reelsScript.id = "reels-script";
-    reelsScript.src = `https://cdn.jsdelivr.net/gh/MRM-ORG/builds@${process.env.NEXT_PUBLIC_REELS_VERSION}/reelife/paxify-reelife.min.js`;
-    // reelsScript.src =
-    //   "https://cdn.jsdelivr.net/gh/MRM-ORG/builds@main/reelife/paxify-reelife.min.js";
-
-    document.body.appendChild(reelsScript);
-
-    reelsScript.onload = () => {
-      if (typeof customizedWindow.ReelsInitializer === "function") {
-        COMPONENTS.forEach((component) => {
-          // @ts-ignore
-          const reels = new ReelsInitializer({
-            elementId: component.id,
-            reelsSettings: component.reelsSettings,
-          });
-          reels.render();
+    if (typeof customizedWindow.ReelsInitializer === "function") {
+      COMPONENTS.forEach((component) => {
+        // @ts-ignore
+        const reels = new ReelsInitializer({
+          style: ui ? 1 : 2,
+          isPreviewMode: false,
+          elementId: component.id,
+          uid: "khUPDz1BMpgDLclzPc8pJIG8lfg1",
+          storeId: "076262c3-8552-4613-a39c-cf330738a2ac",
         });
-      }
-    };
+        reels.render();
+      });
+    }
   };
 
   const loadReelsStylesheet = () => {

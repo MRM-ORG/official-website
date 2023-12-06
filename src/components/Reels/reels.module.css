@@ -5,6 +5,12 @@
   margin-top: 220px;
 }
 
+.loader {
+  display: flex;
+  margin-top: 100px;
+  justify-content: center;
+}
+
 .reels {
   padding-bottom: 20px;
   color: var(--text-primary);
