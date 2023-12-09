@@ -14,6 +14,7 @@ import { dataLayerPush, getEventPayload } from "@/constants/helpers";
 import { Events } from "@/enums/events";
 import { subscribeToNewsletter } from "@/actions/subscribe";
 import { createPaymentSession } from "@/actions/stripe";
+import LoadingPage from "../Loading/loading";
 
 interface ISubscription {
   id: number;
@@ -84,6 +85,14 @@ const SUBSCRIPTIONS: ISubscription[] = [
         ),
       },
       {
+        id: 4,
+        label: (
+          <span>
+            <strong>Personalized</strong> help with installation process
+          </span>
+        ),
+      },
+      {
         id: 8,
         neutralFeature: true,
         label: <span>Paxify Logo</span>,
@@ -97,10 +106,10 @@ const SUBSCRIPTIONS: ISubscription[] = [
     price: "14.99",
     lookup: {
       monthly: {
-        lookupKey: "starter_plan_monthly",
+        lookupKey: "reelife-starter-standard-monthly",
       },
       yearly: {
-        lookupKey: "starter_plan_yearly",
+        lookupKey: "reelife-starter-standard-quarterly",
       },
     },
     cta: {
@@ -112,7 +121,7 @@ const SUBSCRIPTIONS: ISubscription[] = [
         id: 1,
         label: (
           <span>
-            Upto <strong>Unlimited</strong> Stories
+            <strong>Unlimited</strong> Stories
           </span>
         ),
       },
@@ -149,6 +158,14 @@ const SUBSCRIPTIONS: ISubscription[] = [
         ),
       },
       {
+        id: 4,
+        label: (
+          <span>
+            <strong>Personalized</strong> help with installation process
+          </span>
+        ),
+      },
+      {
         id: 8,
         label: <span>No Paxify Branding</span>,
       },
@@ -165,10 +182,10 @@ const SUBSCRIPTIONS: ISubscription[] = [
     },
     lookup: {
       monthly: {
-        lookupKey: "pro_plan_monthly_1",
+        lookupKey: "reelife-professional-standard-monthly",
       },
       yearly: {
-        lookupKey: "pro_plan_yearly_2",
+        lookupKey: "reelife-professional-standard-quarterly",
       },
     },
     features: [
@@ -176,7 +193,7 @@ const SUBSCRIPTIONS: ISubscription[] = [
         id: 1,
         label: (
           <span>
-            Upto <strong>Unlimited</strong> Stories
+            <strong>Unlimited</strong> Stories
           </span>
         ),
       },
@@ -255,14 +272,6 @@ const SUBSCRIPTIONS: ISubscription[] = [
         ),
       },
       {
-        id: 4,
-        label: (
-          <span>
-            <strong>Personalized</strong> help with installation process
-          </span>
-        ),
-      },
-      {
         id: 5,
         label: (
           <span>
@@ -280,6 +289,7 @@ const handleSignUpToDashboard = (cta: string) => {
 };
 
 const Pricing: React.FC = () => {
+  const [isLoading, setIsLoading] = useState(false);
   const [modal, setModal] = useState({
     open: false,
     plan: -1,
@@ -336,6 +346,7 @@ const Pricing: React.FC = () => {
             <div
               className={styles.chooseButton}
               onClick={() => {
+                setIsLoading(true);
                 subscription.id === 4 &&
                   setModal({
                     open: true,
@@ -346,9 +357,16 @@ const Pricing: React.FC = () => {
                   createPaymentSession({
                     lookupKey: subscription?.lookup?.monthly?.lookupKey,
                     intendedPlan: subscription.name,
-                  }).then((res) => {
-                    window.location.href = res.url;
-                  });
+                  })
+                    .then((res) => {
+                      setIsLoading(false);
+                      window.location.href = res.url;
+                    })
+                    .catch((error) => {
+                      setIsLoading(false);
+                      console.error(error);
+                      alert("Something went wrong. Please try again.");
+                    });
               }}>
               {subscription.id === 4 ? "Learn More" : "Subscribe"}
             </div>
@@ -413,6 +431,7 @@ const Pricing: React.FC = () => {
           </div>
         </div>
       </div>
+      <LoadingPage isLoading={isLoading} />
       <ModalComponent
         isVisible={modal.open}
         onClose={() => {
