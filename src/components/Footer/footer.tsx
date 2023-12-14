@@ -1,7 +1,7 @@
 import Button from "@/atoms/Button/button";
 import Image from "next/image";
 import styles from "./footer.module.css";
-import { USER_DASHBOARD } from "@/utils/routes";
+import { DASHBOARD_SIGN_UP, USER_DASHBOARD } from "@/utils/routes";
 
 const socials = [
   {
@@ -29,7 +29,7 @@ const Footer: React.FC = () => {
           <div className={styles.label}>
             Join our community by using our services to grow your business.
           </div>
-          <Button text="Try It For Free" cta={USER_DASHBOARD()}></Button>
+          <Button text="Try It For Free" cta={DASHBOARD_SIGN_UP()}></Button>
         </div>
         <hr className={styles.divider} />
         <div className={styles.footerBottom}>

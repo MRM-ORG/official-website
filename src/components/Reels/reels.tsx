@@ -4,7 +4,6 @@ import Toggle from "@/atoms/Toggle/toggle";
 import { poppins } from "@/utils/fonts";
 import { isMobileDevice } from "@/utils/responsive";
 import { useEffect, useState } from "react";
-import { loadReels } from "../ReelsLoader/reelsLoader";
 import styles from "./reels.module.css";
 import ReactLoading from "react-loading";
 
@@ -21,15 +20,34 @@ const Reels: React.FC = () => {
     setIsCircleUI(state === "Circle UI");
   };
 
-  useEffect(() => {
-    setIsLoading(true);
+  const renderPreviews = () => {
+    // @ts-ignore
+    const circle = new window.ReelsInitializer({
+      style: 1,
+      isPreviewMode: false,
+      elementId: "paxify-app-id-1",
+      uid: "khUPDz1BMpgDLclzPc8pJIG8lfg1",
+      storeId: "076262c3-8552-4613-a39c-cf330738a2ac",
+    });
+    circle.render();
 
-    setInterval(() => {
+    // @ts-ignore
+    const rectangle = new window.ReelsInitializer({
+      style: 2,
+      isPreviewMode: false,
+      elementId: "paxify-app-id-2",
+      uid: "khUPDz1BMpgDLclzPc8pJIG8lfg1",
+      storeId: "076262c3-8552-4613-a39c-cf330738a2ac",
+    });
+    rectangle.render();
+
+    setTimeout(() => {
       setIsLoading(false);
-    }, 4000);
-  }, [isCircleUI]);
+    }, 1500);
+  };
 
   const loadScripts = () => {
+    setIsLoading(true);
     const reelsScript = document.createElement("script");
     reelsScript.id = "reels-script";
     reelsScript.src = `https://cdn.jsdelivr.net/gh/paxify-llc/builds@${process.env.NEXT_PUBLIC_REELS_VERSION}/reelife/paxify-reelife.js`;
@@ -45,14 +63,23 @@ const Reels: React.FC = () => {
     document.body.appendChild(reelsScript);
     document.head.appendChild(stylesheet);
   };
-
   useEffect(() => {
-    loadScripts();
+    const intervalId = setInterval(() => {
+      // @ts-ignore
+      if (typeof window.ReelsInitializer !== "undefined") {
+        console.log("Script loaded!");
+        renderPreviews();
+        clearInterval(intervalId);
+      } else {
+        console.log("Attempting to load script...");
+        loadScripts();
+      }
+    }, 500);
+
+    return () => {
+      clearInterval(intervalId);
+    };
   }, []);
-
-  useEffect(() => {
-    loadReels(isCircleUI);
-  }, [isCircleUI]);
 
   return (
     <section

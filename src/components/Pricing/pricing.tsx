@@ -88,7 +88,7 @@ const SUBSCRIPTIONS: ISubscription[] = [
         id: 4,
         label: (
           <span>
-            <strong>Personalized</strong> help with installation process
+            Installation <strong>support</strong>
           </span>
         ),
       },
@@ -161,7 +161,7 @@ const SUBSCRIPTIONS: ISubscription[] = [
         id: 4,
         label: (
           <span>
-            <strong>Personalized</strong> help with installation process
+            Installation <strong>support</strong>
           </span>
         ),
       },
@@ -258,7 +258,7 @@ const SUBSCRIPTIONS: ISubscription[] = [
         id: 2,
         label: (
           <span>
-            Customize <strong>all</strong> Stores or Businesses under your brand
+            <strong>Customize</strong> Stores or Businesses
           </span>
         ),
       },
@@ -346,7 +346,8 @@ const Pricing: React.FC = () => {
             <div
               className={styles.chooseButton}
               onClick={() => {
-                setIsLoading(true);
+                subscription.id !== 4 && setIsLoading(true);
+
                 subscription.id === 4 &&
                   setModal({
                     open: true,
@@ -386,8 +387,8 @@ const Pricing: React.FC = () => {
     const email = e.target[0].value;
     const body = {
       email,
-      plan: SUBSCRIPTIONS[modal.plan - 1].name,
     };
+    setIsLoading(true);
     subscribeToNewsletter(body)
       .then((res: any) => {
         console.log(res);
@@ -397,7 +398,8 @@ const Pricing: React.FC = () => {
       .catch((error: any) => {
         console.error(error);
         alert("Something went wrong. Please try again.");
-      });
+      })
+      .finally(() => setIsLoading(true));
   };
 
   return (
@@ -450,7 +452,7 @@ const Pricing: React.FC = () => {
         </div>
         {hasSubscribed && (
           <div className={`${styles.modalComponent} ${poppins.className}`}>
-            <div className={styles.title}>Thank you for subscribing!</div>
+            <div>Thanks for subscribing!</div>
             <div>We will notify you when this plan is available.</div>
           </div>
         )}

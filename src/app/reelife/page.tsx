@@ -1,14 +1,14 @@
 "use client";
 
-import Footer from "@/components/Footer/footer";
-import { Suspense, lazy, useEffect } from "react";
-import Support from "@/components/Support/support";
-import { GTM_HEAD_SCRIPT, GTM_BODY_IFRAME } from "@/constants/config";
-import Home from "@/components/Home/home";
-import Features from "@/components/Features/features";
 import Demonstration from "@/components/Demonstration/demonstration";
+import Features from "@/components/Features/features";
+import Footer from "@/components/Footer/footer";
+import Home from "@/components/Home/home";
 import Pricing from "@/components/Pricing/pricing";
 import Reels from "@/components/Reels/reels";
+import Support from "@/components/Support/support";
+import { GTM_BODY_IFRAME, GTM_HEAD_SCRIPT } from "@/constants/config";
+import { useEffect } from "react";
 
 export default function Main() {
   useEffect(() => {
@@ -47,11 +47,9 @@ export default function Main() {
       <Home />
       <Features />
       <Support />
-      <Suspense fallback={<div>Loading...</div>}>
-        <Demonstration />
-        <Reels />
-        <Pricing />
-      </Suspense>
+      <Demonstration />
+      <Reels />
+      <Pricing />
       <Footer />
     </main>
   );

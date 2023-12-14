@@ -5,7 +5,7 @@ import PlayIcon from "@/vectors/PlayIcon";
 import Image from "next/image";
 import { useEffect, useState } from "react";
 import styles from "./home.module.css";
-import { USER_DASHBOARD } from "@/utils/routes";
+import { DASHBOARD_SIGN_UP, USER_DASHBOARD } from "@/utils/routes";
 import { dataLayerPush, getEventPayload } from "@/constants/helpers";
 import { Events } from "@/enums/events";
 
@@ -86,7 +86,7 @@ const Home: React.FC = () => {
                   components and sections, revolutionizing the way you engage
                   with customers
                 </p>
-                <Button text="Get Started" cta={USER_DASHBOARD()} />
+                <Button text="Get Started" cta={DASHBOARD_SIGN_UP()} />
               </div>
             </div>
           </div>

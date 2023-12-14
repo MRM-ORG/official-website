@@ -2,7 +2,7 @@ import axios from "axios";
 import { BACKEND_URL } from "@/constants/config";
 
 export async function subscribeToNewsletter(body: any): Promise<boolean> {
-  const API = `${BACKEND_URL}/subscribe`;
+  const API = `${BACKEND_URL}/reelife/newsletter`;
 
   return axios
     .post(API, body)
