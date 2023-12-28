@@ -121,7 +121,7 @@ const Reels: React.FC = () => {
           className={`paxify-app ${
             !isCircleUI ? styles.active : styles.inactive
           }`}></div>
-        {!isLoading && (
+        {/* {!isLoading && (
           <div
             className={styles.features}
             style={{
@@ -140,7 +140,7 @@ const Reels: React.FC = () => {
               Create and preview web story easily with studio
             </div>
           </div>
-        )}
+        )} */}
       </div>
     </section>
   );
