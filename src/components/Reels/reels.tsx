@@ -67,11 +67,9 @@ const Reels: React.FC = () => {
     const intervalId = setInterval(() => {
       // @ts-ignore
       if (typeof window.ReelsInitializer !== "undefined") {
-        console.log("Script loaded!");
         renderPreviews();
         clearInterval(intervalId);
       } else {
-        console.log("Attempting to load script...");
         loadScripts();
       }
     }, 500);

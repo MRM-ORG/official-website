@@ -72,7 +72,6 @@ const Support = () => {
       content,
     })
       .then((res) => {
-        console.log(res);
         dataLayerPush(getEventPayload(Events.LEAD_GENERATION));
         setName("");
         setEmail("");
@@ -97,7 +96,6 @@ const Support = () => {
       rating,
     })
       .then((res) => {
-        console.log(res);
         dataLayerPush(getEventPayload(Events.LEAD_GENERATION));
         setName("");
         setEmail("");

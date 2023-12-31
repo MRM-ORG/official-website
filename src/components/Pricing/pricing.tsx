@@ -48,7 +48,7 @@ const SUBSCRIPTIONS: ISubscription[] = [
         id: 1,
         label: (
           <span>
-            Upto <strong>5</strong> Stories
+            Upto <strong>3</strong> Stories
           </span>
         ),
       },
@@ -391,7 +391,6 @@ const Pricing: React.FC = () => {
     setIsLoading(true);
     subscribeToNewsletter(body)
       .then((res: any) => {
-        console.log(res);
         dataLayerPush(getEventPayload(Events.SUBSCRIBE));
         setHasSubscribed(true);
       })
