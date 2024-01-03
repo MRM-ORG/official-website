@@ -173,7 +173,7 @@ const SUBSCRIPTIONS: ISubscription[] = [
   },
   {
     id: 3,
-    name: "Professional",
+    name: "Pro",
     comingSoon: false,
     price: "24.99",
     cta: {
@@ -237,7 +237,7 @@ const SUBSCRIPTIONS: ISubscription[] = [
   },
   {
     id: 4,
-    name: "Enterprise",
+    name: "Pro Plus",
     isEnterprise: true,
     comingSoon: true,
     price: "ASK FOR QUOTE",
