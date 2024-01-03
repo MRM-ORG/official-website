@@ -28,6 +28,10 @@ const navLinks = [
     name: "Pricing",
     href: "#pricing",
   },
+  {
+    name: "Demo Store",
+    href: "https://reelife-demo.paxify.io",
+  },
 ];
 
 const Header: React.FC = () => {
@@ -86,6 +90,14 @@ const Header: React.FC = () => {
 
   const handleSmoothScroll = (e: any) => {
     e.preventDefault();
+    console.log("CLICKED:", e.target.getAttribute("href"));
+
+    const target = e.target.getAttribute("href");
+    if (target.startsWith("http")) {
+      window.open(target, "_blank");
+      return;
+    }
+
     const targetId = e.target.getAttribute("href").substring(1);
     const targetElement = document.getElementById(targetId);
     if (targetElement) {

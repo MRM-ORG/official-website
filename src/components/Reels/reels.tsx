@@ -140,6 +140,17 @@ const Reels: React.FC = () => {
           </div>
         )} */}
       </div>
+      <div className={styles.semiHeading}>
+        <span>Curiosity sparked? </span>
+        <span className={styles.highlight}>
+          Click{" "}
+          <a target="_blank" href="https://reelife-demo.paxify.io">
+            HERE
+          </a>{" "}
+          to step into our demo store and embark on a journey of discovery!
+        </span>{" "}
+        <span>Your adventure begins now.</span>
+      </div>
     </section>
   );
 };
