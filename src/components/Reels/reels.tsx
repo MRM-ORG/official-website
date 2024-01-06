@@ -26,7 +26,7 @@ const Reels: React.FC = () => {
       style: 1,
       isPreviewMode: false,
       elementId: "paxify-app-id-1",
-      uid: "khUPDz1BMpgDLclzPc8pJIG8lfg1",
+      uid: "m18zPi5Vctdg1XpIkSwkVxfzWmY2",
       storeId: "076262c3-8552-4613-a39c-cf330738a2ac",
     });
     circle.render();
@@ -36,7 +36,7 @@ const Reels: React.FC = () => {
       style: 2,
       isPreviewMode: false,
       elementId: "paxify-app-id-2",
-      uid: "khUPDz1BMpgDLclzPc8pJIG8lfg1",
+      uid: "m18zPi5Vctdg1XpIkSwkVxfzWmY2",
       storeId: "076262c3-8552-4613-a39c-cf330738a2ac",
     });
     rectangle.render();
