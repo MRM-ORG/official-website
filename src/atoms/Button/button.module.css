@@ -3,16 +3,16 @@
   object-fit: fill;
   /* Gradient */
   background-image: var(--gradient-primary);
-  border-radius: 8px;
   flex: none;
   align-self: flex-start;
   text-decoration: none;
-  padding: 16px 35px 15px;
+  padding: 12px 48px;
   font-size: 15px;
   font-weight: 500;
   line-height: 1.7;
   width: fit-content;
   transition: all 0.2s ease-in-out;
+  border-radius: 35px;
 }
 
 .button a {

@@ -1,4 +1,5 @@
 import Header from "@/components/Header/header";
+import { GTM_BODY_IFRAME, GTM_HEAD_SCRIPT } from "@/constants/config";
 import "./globals.css";
 
 export const metadata = {
@@ -15,10 +16,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <head>
-        <script
-          id="gtag"
-          async
-          src="https://www.googletagmanager.com/gtag/js?id=G-SW6JRKP2YD"></script>
+        <script id="gtag" async src={GTM_HEAD_SCRIPT}></script>
         <script
           id="ga-data"
           dangerouslySetInnerHTML={{
@@ -33,6 +31,16 @@ export default function RootLayout({
         />
       </head>
       <body style={{ margin: 0 }} id="body">
+        <noscript>
+          <iframe
+            title="gtm-frame"
+            id="gtm-frame"
+            src={GTM_BODY_IFRAME}
+            height="0"
+            width="0"
+            style={{ display: "none", visibility: "hidden" }}></iframe>
+        </noscript>
+
         <Header />
         {children}
       </body>

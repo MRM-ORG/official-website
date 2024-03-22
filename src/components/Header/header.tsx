@@ -5,13 +5,14 @@ import Link from "next/link";
 import { LegacyRef, useEffect, useRef, useState } from "react";
 import styles from "./header.module.css";
 import { poppins } from "@/utils/fonts";
-import { USER_DASHBOARD } from "@/utils/routes";
+import {
+  DASHBOARD_LOGIN,
+  DASHBOARD_SIGN_UP,
+  USER_DASHBOARD,
+} from "@/utils/routes";
+import Button from "@/atoms/Button/button";
 
 const navLinks = [
-  {
-    name: "Home",
-    href: "#home",
-  },
   {
     name: "Features",
     href: "#features",
@@ -30,7 +31,7 @@ const navLinks = [
   },
   {
     name: "Demo Store",
-    href: "https://reelife-demo.paxify.io",
+    href: "https://store.reelife.paxify.io",
   },
 ];
 
@@ -90,7 +91,6 @@ const Header: React.FC = () => {
 
   const handleSmoothScroll = (e: any) => {
     e.preventDefault();
-    console.log("CLICKED:", e.target.getAttribute("href"));
 
     const target = e.target.getAttribute("href");
     if (target.startsWith("http")) {
@@ -137,7 +137,7 @@ const Header: React.FC = () => {
     <div className={poppins.className}>
       <nav className={styles.main}>
         <div className={styles.navMenuFlex}>
-          <Link href="/" className={styles.wNavBrand}>
+          {/* <Link href="/" className={styles.wNavBrand}>
             <div className={styles.logoContainer}>
               <Image
                 src="/assets/logo/logo.png"
@@ -149,9 +149,8 @@ const Header: React.FC = () => {
               />
               By Paxify
             </div>
-          </Link>
+          </Link> */}
           <ul
-            role="list"
             className={`${styles.navMenu} ${styles.wListUnstyled} ${styles.wCurrent}`}>
             {navLinks.map((link) => (
               <li key={link.name}>
@@ -168,12 +167,16 @@ const Header: React.FC = () => {
               </li>
             ))}
           </ul>
-          <div className={styles.navBarButtonWrapper}>
-            <a
-              href={USER_DASHBOARD()}
-              className={`${styles.button} ${styles.buttonCcSmall} ${styles.wButton}`}>
-              Dashboard
+          <div className={styles.navbarButtonWrapper}>
+            <a className={styles.anchor} href={DASHBOARD_LOGIN()}>
+              LOG IN
             </a>
+            {/* <a
+              href={DASHBOARD_SIGN_UP()}
+              className={`${styles.button} ${styles.buttonCcSmall} ${styles.wButton}`}>
+              GET STARTED FOR FREE
+            </a> */}
+            <Button text="GET STARTED FOR FREE" cta={DASHBOARD_SIGN_UP()} />
           </div>
         </div>
       </nav>

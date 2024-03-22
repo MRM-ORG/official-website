@@ -10,7 +10,6 @@ interface IButtonProps {
 const Button: React.FC<IButtonProps> = (props) => {
   return (
     <div
-      data-w-id="9a004d67-26d4-a27d-f78c-0ec4169fc242"
       onClick={() => {
         window.location.href = props.cta || "#";
       }}
