@@ -10,7 +10,7 @@ import styles from "./home.module.css";
 
 const Home: React.FC = () => {
   const [openVideo, setOpenVideo] = useState(false);
-  const isMobile = window.innerWidth < 768;
+  const isMobile = window?.innerWidth < 768 ?? false;
 
   useEffect(() => {
     dataLayerPush(getEventPayload(Events.LOADED));
