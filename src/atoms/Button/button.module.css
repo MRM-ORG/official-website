@@ -3,16 +3,16 @@
   object-fit: fill;
   /* Gradient */
   background-image: var(--gradient-primary);
-  border-radius: 8px;
   flex: none;
   align-self: flex-start;
   text-decoration: none;
-  padding: 16px 35px 15px;
+  padding: 12px 48px;
   font-size: 15px;
   font-weight: 500;
   line-height: 1.7;
   width: fit-content;
   transition: all 0.2s ease-in-out;
+  border-radius: 35px;
 }
 
 .button a {
@@ -35,5 +35,14 @@
 @media screen and (max-width: 479px) {
   .hero {
     padding-bottom: 20px;
+  }
+}
+
+@media (max-width: 768px) {
+  .button {
+    padding: 12px 12px;
+  }
+  .button a {
+    font-size: 12px;
   }
 }

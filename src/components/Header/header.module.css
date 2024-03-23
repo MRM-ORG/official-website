@@ -1,11 +1,10 @@
 .main {
-  position: fixed;
   display: flex;
   padding: 10px 0;
   width: 100%;
   background-color: var(--white);
   justify-content: center;
-  z-index: 9999;
+  z-index: 50;
   box-shadow: 0 5px 35px rgba(30, 34, 40, 0.15);
 }
 
@@ -20,10 +19,11 @@
 }
 
 .navMenuFlex {
-  min-width: 80%;
-  display: flex;
   align-items: center;
+  display: grid;
   justify-content: space-between;
+  width: 100%;
+  grid-template-columns: 9fr 3fr;
 }
 
 .wNavBrand {
@@ -49,8 +49,6 @@
 .navLink {
   color: #343f52;
   align-items: center;
-  margin-left: 20px;
-  margin-right: 0;
   padding: 25px 0;
   font-weight: 500;
   text-decoration: none;
@@ -72,7 +70,14 @@
 }
 
 .navbarButtonWrapper {
-  flex: none;
+  gap: 2rem;
+  display: flex;
+  align-items: center;
+}
+
+.anchor {
+  color: #343f52;
+  text-decoration: none;
 }
 
 .buttonCcSmall {
@@ -87,11 +92,11 @@
   text-align: center;
   object-fit: fill;
   background-color: var(--primary);
-  border-radius: 8px;
   flex: none;
+  border-radius: 22px;
   align-self: flex-start;
   padding: 12px 24px;
-  font-size: 17px;
+  font-size: 13px;
   font-weight: 500;
   line-height: 1.7;
   transition: all 0.2s ease-in-out;

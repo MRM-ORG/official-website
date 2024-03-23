@@ -1,13 +1,12 @@
 "use client";
 import Button from "@/atoms/Button/button";
+import { dataLayerPush, getEventPayload } from "@/constants/helpers";
+import { Events } from "@/enums/events";
 import { poppins } from "@/utils/fonts";
-import PlayIcon from "@/vectors/PlayIcon";
+import { DASHBOARD_SIGN_UP } from "@/utils/routes";
 import Image from "next/image";
 import { useEffect, useState } from "react";
 import styles from "./home.module.css";
-import { DASHBOARD_SIGN_UP, USER_DASHBOARD } from "@/utils/routes";
-import { dataLayerPush, getEventPayload } from "@/constants/helpers";
-import { Events } from "@/enums/events";
 
 const Home: React.FC = () => {
   const [openVideo, setOpenVideo] = useState(false);
@@ -35,7 +34,7 @@ const Home: React.FC = () => {
         <div className={styles.hero}>
           <div className={styles.heroImageWrapper}>
             <Image
-              src="/assets/banners/home.png"
+              src="/assets/banners/hero-1.png"
               loading="lazy"
               width={1000}
               height={100}
@@ -43,22 +42,6 @@ const Home: React.FC = () => {
               alt="flux office"
               className={styles.heroImage}
             />
-            {/* <div
-              data-w-id="54174dcc-aea1-b483-3b76-af7c93538bcd"
-              style={{ opacity: 1 }}
-              onClick={() => setOpenVideo(true)}
-              className={styles.play}>
-              <a
-                href="#"
-                className={`${styles.playButton} ${styles.wInlineBlock} ${styles.wLightbox}`}
-                aria-label="open lightbox"
-                aria-haspopup="dialog">
-                <div className={styles.playButtonPulse} />
-                <div className={styles.materialIcon}>
-                  <PlayIcon />
-                </div>
-              </a>
-            </div> */}
           </div>
           <div className={styles.container}>
             <div className={styles.heroGrid}>
@@ -68,25 +51,26 @@ const Home: React.FC = () => {
                 <h1
                   data-w-id="5cd846b7-aae4-71b2-ca7a-70d8b7616be7"
                   className={`${styles.display1} ${styles.marginBottom20}`}>
-                  Elevate Your Business with Seamless{" "}
-                  <span
+                  Unleash Your Website&apos;s Potential:{" "}
+                  <div
                     className={`${styles.textGradient} ${styles.textEmphasize} ${poppins.className}`}>
-                    Innovation
-                  </span>{" "}
-                  and{" "}
-                  <span
-                    className={`${styles.textGradient} ${styles.textEmphasize} ${poppins.className}`}>
-                    Simplicity
-                  </span>
+                    Elevate Engagement With Reels
+                    <br /> Content
+                  </div>{" "}
                 </h1>
                 <p
                   data-w-id="aeeed16e-bfc0-1466-2017-39da55aff322"
                   className={styles.paragraphLarge}>
-                  Transform your online presence with our user-friendly
-                  components and sections, revolutionizing the way you engage
-                  with customers
+                  Fuel your website&apos;s growth journey. Truly engage your
+                  audience to get more leads and customers.
                 </p>
-                <Button text="Get Started" cta={DASHBOARD_SIGN_UP()} />
+                <div className={styles.ctas}>
+                  <Button
+                    text="GET STARTED FOR FREE"
+                    cta={DASHBOARD_SIGN_UP()}
+                  />
+                  <div>No credit card required!</div>
+                </div>
               </div>
             </div>
           </div>

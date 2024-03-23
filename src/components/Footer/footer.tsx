@@ -1,23 +1,23 @@
 import Button from "@/atoms/Button/button";
 import Image from "next/image";
 import styles from "./footer.module.css";
-import { DASHBOARD_SIGN_UP, USER_DASHBOARD } from "@/utils/routes";
+import { DASHBOARD_SIGN_UP } from "@/utils/routes";
 
 const socials = [
   {
     alt: "linked-in",
-    src: "./assets/socials/linkedin-in.svg",
-    href: "https://linkedin.com/in/paxify",
+    src: "/assets/socials/linkedin-in.svg",
+    href: "https://www.linkedin.com/company/paxify-llc/",
   },
-  {
-    alt: "twitter",
-    src: "./assets/socials/twitter.svg",
-    href: "https://twitter.com/paxify",
-  },
+  // {
+  //   alt: "twitter",
+  //   src: "./assets/socials/twitter.svg",
+  //   href: "https://twitter.com/paxify",
+  // },
   {
     alt: "facebook",
-    src: "./assets/socials/instagram.svg",
-    href: "https://instagram.com/paxifyy",
+    src: "/assets/socials/facebook-f.svg",
+    href: "https://www.facebook.com/paxify.llc",
   },
 ];
 

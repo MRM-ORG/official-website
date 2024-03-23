@@ -5,6 +5,7 @@ const nextConfig = {
       "uploads-ssl.webflow.com",
       "picsum.photos",
       "assets.website-files.com",
+      "randomuser.me",
     ],
   },
 };

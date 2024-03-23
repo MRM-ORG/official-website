@@ -132,7 +132,10 @@ const Support = () => {
     <div
       ref={containerRef}
       className={`${styles.chatSupport} ${poppins.className}`}>
-      <div className={styles.chatSupportBar} onClick={toggleForm}>
+      <div
+        id="chatSupport"
+        className={styles.chatSupportBar}
+        onClick={toggleForm}>
         {!form
           ? "Get in touch!"
           : form === "request"

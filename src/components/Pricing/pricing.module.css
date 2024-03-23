@@ -3,9 +3,8 @@
   display: flex;
   align-items: center;
   padding: 80px 0;
-  height: 500px;
   flex-direction: column;
-  background-color: var(--primary-soft);
+  background-color: white;
 }
 
 .price {
@@ -70,15 +69,14 @@
   flex-wrap: wrap;
   align-items: center;
   justify-content: center;
-  position: absolute;
-  top: 180px;
+
   max-width: 100%;
 }
 
 .desktopPricing {
   overflow-x: scroll !important;
-  z-index: 0 !important;
-
+  z-index: 0;
+  padding: 20px 10px;
   scrollbar-width: none;
   -ms-overflow-style: none;
 }
@@ -94,9 +92,8 @@
   flex-direction: column;
   padding: 50px 40px 60px;
   max-width: 350px;
-  background: var(--white);
-  height: 550px;
-  transition: all 0.5s ease-in-out;
+  transition: transform 0.5s ease-in-out;
+  background-color: var(--primary-soft);
 }
 
 .blurredCard {
@@ -108,11 +105,10 @@
   padding: 50px 80px 60px;
   max-width: 350px;
   background: var(--white);
-  height: 550px;
 }
 
 .card:hover {
-  box-shadow: 0 5px 35px rgba(30, 34, 40, 0.2);
+  transform: scale(1.05);
 }
 
 .pill {
@@ -272,7 +268,7 @@
 @media (max-width: 768px) {
   .pricing {
     height: 100%;
-    padding: 100px 10px;
+    padding: 50px 10px;
   }
 
   .desktopPricing {
