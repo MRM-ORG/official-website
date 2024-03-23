@@ -1,5 +1,6 @@
 .contentContainer {
   margin: 0 auto;
+  padding: 0 50px;
   max-width: 1440px;
 }
 
@@ -82,8 +83,17 @@
 }
 
 @media (max-width: 768px) {
+  .contentContainer {
+    padding: 0;
+  }
+
+  .ctas div {
+    font-size: 12px;
+  }
+
   .container {
-    grid-template-columns: 1fr;
+    display: flex;
+    flex-direction: column-reverse;
   }
 
   .heading {
@@ -102,5 +112,14 @@
 
   .titleImage {
     padding: 24px;
+  }
+
+  .titleImage img {
+    width: 100%;
+    height: auto;
+  }
+
+  .description {
+    font-size: 14px;
   }
 }

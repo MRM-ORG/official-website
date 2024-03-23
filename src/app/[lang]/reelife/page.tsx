@@ -4,6 +4,8 @@ import Demonstration from "@/components/Demonstration/demonstration";
 import Features from "@/components/Features/features";
 import Footer from "@/components/Footer/footer";
 import Home from "@/components/Home/home";
+import Newsletter from "@/components/Newsletter/newsletter";
+import Platforms from "@/components/Platforms/platforms";
 import Pricing from "@/components/Pricing/pricing";
 import Reels from "@/components/Reels/reels";
 import Shoppable from "@/components/Shoppable/shoppable";
@@ -36,7 +38,9 @@ export default function Main(props: IMainProps) {
       <Demonstration />
       <Reels />
       <Shoppable />
+      <Platforms />
       <Pricing />
+      <Newsletter />
       <Footer />
     </main>
   );

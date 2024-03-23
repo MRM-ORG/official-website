@@ -37,3 +37,12 @@
     padding-bottom: 20px;
   }
 }
+
+@media (max-width: 768px) {
+  .button {
+    padding: 12px 12px;
+  }
+  .button a {
+    font-size: 12px;
+  }
+}

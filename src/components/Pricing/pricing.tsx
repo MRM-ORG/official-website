@@ -95,7 +95,7 @@ const SUBSCRIPTIONS: ISubscription[] = [
       {
         id: 8,
         neutralFeature: true,
-        label: <span>Paxify Logo</span>,
+        label: <span>Paxify Branding</span>,
       },
     ],
   },
@@ -235,52 +235,52 @@ const SUBSCRIPTIONS: ISubscription[] = [
       },
     ],
   },
-  {
-    id: 4,
-    name: "Pro Plus",
-    isEnterprise: true,
-    comingSoon: true,
-    price: "ASK FOR QUOTE",
-    cta: {
-      label: "Contact Us!",
-      href: "mailto:support@paxify.io?subject=Enterprise Plan&body=Hi Paxify, I want to know more about your Enterprise Plan.",
-    },
-    features: [
-      {
-        id: 1,
-        label: (
-          <span>
-            <strong>Everything</strong> in Pro Plan
-          </span>
-        ),
-      },
-      {
-        id: 2,
-        label: (
-          <span>
-            <strong>Customize</strong> Stores or Businesses
-          </span>
-        ),
-      },
-      {
-        id: 3,
-        label: (
-          <span>
-            Richer <strong>insights</strong> for <strong>all</strong> of your
-            stories
-          </span>
-        ),
-      },
-      {
-        id: 5,
-        label: (
-          <span>
-            <strong>Custom</strong> page views
-          </span>
-        ),
-      },
-    ],
-  },
+  // {
+  //   id: 4,
+  //   name: "Pro Plus",
+  //   isEnterprise: true,
+  //   comingSoon: true,
+  //   price: "ASK FOR QUOTE",
+  //   cta: {
+  //     label: "Contact Us!",
+  //     href: "mailto:support@paxify.io?subject=Enterprise Plan&body=Hi Paxify, I want to know more about your Enterprise Plan.",
+  //   },
+  //   features: [
+  //     {
+  //       id: 1,
+  //       label: (
+  //         <span>
+  //           <strong>Everything</strong> in Pro Plan
+  //         </span>
+  //       ),
+  //     },
+  //     {
+  //       id: 2,
+  //       label: (
+  //         <span>
+  //           <strong>Customize</strong> Stores or Businesses
+  //         </span>
+  //       ),
+  //     },
+  //     {
+  //       id: 3,
+  //       label: (
+  //         <span>
+  //           Richer <strong>insights</strong> for <strong>all</strong> of your
+  //           stories
+  //         </span>
+  //       ),
+  //     },
+  //     {
+  //       id: 5,
+  //       label: (
+  //         <span>
+  //           <strong>Custom</strong> page views
+  //         </span>
+  //       ),
+  //     },
+  //   ],
+  // },
 ];
 
 const handleSignUpToDashboard = (cta: string) => {
@@ -405,7 +405,7 @@ const Pricing: React.FC = () => {
     <section id="pricing" className={`${styles.pricing} ${poppins.className}`}>
       <div className={styles.content}>
         <div className={styles.textContent}>
-          <h2 className={styles.heading}>Pricing Plan</h2>
+          <h2 className={styles.heading}>Pricing Plans</h2>
         </div>
         <div className={styles.subscriptions}>
           <Swiper

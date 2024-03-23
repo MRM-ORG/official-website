@@ -10,7 +10,7 @@ const Shoppable: React.FC = () => {
   return (
     <div className={styles.contentContainer}>
       <section
-        id="success-stories"
+        id="shoppable"
         className={`${styles.container} ${poppins.className}`}>
         <div className={styles.content}>
           <div className={styles.heading}>Shoppable Content</div>
@@ -18,7 +18,7 @@ const Shoppable: React.FC = () => {
             Integrate hign-engagement content to your website.
             <br />
             <br />
-            Icrease conversions by making your content &quot;shoppable&quot;
+            Increase conversions by making your content &quot;shoppable&quot;
             with Relife.
           </div>
           <div className={styles.ctas}>

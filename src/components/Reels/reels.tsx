@@ -35,10 +35,17 @@ const Reels: React.FC = () => {
             </div>
           </div>
           <div className={styles.review}>
-            <div>[REVIEW_STARS]</div>
+            <div>
+              <Image
+                width={185}
+                height={35}
+                alt="author"
+                src="/assets/reviews/rating.png"
+              />
+            </div>
             <div className={styles.userReview}>
               &quot;We use reels to promote specific products and sales. After
-              really seeing our products, I quess our customers feel really
+              really seeing our products, I guess our customers feel really
               motivated to buy.&quot;
             </div>
             <div className={styles.author}>
@@ -47,10 +54,10 @@ const Reels: React.FC = () => {
                 height={60}
                 alt="author"
                 className={styles.authorImage}
-                src="https://randomuser.me/api/portraits/men/67.jpg"
+                src="/assets/reviews/author.png"
               />
               <div>
-                <div>John Doe</div>
+                <div>Clark Knight</div>
                 <div>Marketing Executive</div>
               </div>
             </div>

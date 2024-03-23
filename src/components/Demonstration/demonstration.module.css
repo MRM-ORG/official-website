@@ -43,6 +43,7 @@
 }
 
 .features {
+  gap: 12px;
   display: flex;
   flex-direction: column;
 }
@@ -60,7 +61,21 @@
 
 @media (max-width: 768px) {
   .container {
-    grid-template-columns: 1fr;
+    column-gap: 0;
+    padding: 20px;
+  }
+
+  .features {
+    gap: 6px;
+  }
+
+  .graphic {
+    align-items: flex-start;
+  }
+
+  .asset {
+    width: 100%;
+    height: auto;
   }
 
   .content {
@@ -72,6 +87,22 @@
   .subHeading,
   .description,
   .row {
-    padding: 0 20px;
+    padding: 0;
+  }
+
+  .heading {
+    font-size: 16px;
+  }
+
+  .subHeading {
+    font-size: 12px;
+  }
+
+  .description {
+    font-size: 14px;
+  }
+
+  .featureContainer {
+    font-size: 12px;
   }
 }

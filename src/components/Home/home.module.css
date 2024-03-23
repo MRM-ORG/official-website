@@ -49,7 +49,7 @@ section #home {
 }
 
 .heroImage {
-  top: 25px;
+  top: 0;
   width: 100%;
   height: 100%;
   object-fit: cover;
@@ -116,7 +116,7 @@ section #home {
   grid-template-rows: auto;
   grid-template-columns: 1fr 1fr;
   grid-auto-columns: 1fr;
-  padding-top: 250px;
+  padding-top: 200px;
   padding-bottom: 170px;
   display: grid;
 }
@@ -282,6 +282,16 @@ section #home {
 
   .heroImageWrapper {
     margin-top: 35px;
+  }
+
+  .ctas div {
+    font-size: 12px;
+  }
+
+  .heroImageWrapper {
+    width: 100%;
+    min-width: unset;
+    min-height: unset;
   }
 }
 

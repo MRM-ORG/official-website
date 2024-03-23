@@ -77,6 +77,7 @@
 
 @media (max-width: 768px) {
   .container {
+    padding: unset;
     grid-template-columns: 1fr;
   }
 

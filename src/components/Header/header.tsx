@@ -14,16 +14,16 @@ import Button from "@/atoms/Button/button";
 
 const navLinks = [
   {
-    name: "Features",
+    name: "Partners",
     href: "#features",
   },
   {
-    name: "Showcase",
-    href: "#showcase",
+    name: "Features",
+    href: "#Demonstration",
   },
   {
     name: "Stories",
-    href: "#stories-demo",
+    href: "#shoppable",
   },
   {
     name: "Pricing",
@@ -137,25 +137,16 @@ const Header: React.FC = () => {
     <div className={poppins.className}>
       <nav className={styles.main}>
         <div className={styles.navMenuFlex}>
-          {/* <Link href="/" className={styles.wNavBrand}>
-            <div className={styles.logoContainer}>
-              <Image
-                src="/assets/logo/logo.png"
-                loading="lazy"
-                alt=""
-                width={146}
-                height={50}
-                className="logo"
-              />
-              By Paxify
-            </div>
-          </Link> */}
           <ul
             className={`${styles.navMenu} ${styles.wListUnstyled} ${styles.wCurrent}`}>
             {navLinks.map((link) => (
               <li key={link.name}>
                 <Link
-                  onClick={handleSmoothScroll}
+                  // onClick={(e) => {
+                  //   link.name !== "Demo Store"
+                  //     ? handleSmoothScroll(e)
+                  //     : () => {};
+                  // }}
                   href={link.href}
                   className={`${styles.navLink} ${
                     activeSection === link.href.substring(1)
@@ -171,11 +162,6 @@ const Header: React.FC = () => {
             <a className={styles.anchor} href={DASHBOARD_LOGIN()}>
               LOG IN
             </a>
-            {/* <a
-              href={DASHBOARD_SIGN_UP()}
-              className={`${styles.button} ${styles.buttonCcSmall} ${styles.wButton}`}>
-              GET STARTED FOR FREE
-            </a> */}
             <Button text="GET STARTED FOR FREE" cta={DASHBOARD_SIGN_UP()} />
           </div>
         </div>

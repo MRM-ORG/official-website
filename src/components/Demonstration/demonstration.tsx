@@ -14,9 +14,10 @@ const Demonstration: React.FC = () => {
         className={`${styles.container} ${poppins.className}`}>
         <div className={styles.graphic}>
           <Image
-            width={400}
+            width={350}
             height={600}
             alt="engagement"
+            className={styles.asset}
             src="/assets/engagement/engagement.png"
           />
         </div>
@@ -33,8 +34,13 @@ const Demonstration: React.FC = () => {
           </div>
           <div className={styles.features}>
             <div className={styles.row}>
-              <div>IMAGE</div>
-              <div>
+              <Image
+                width={25}
+                height={25}
+                alt="promote"
+                src="/assets/engagement/promote.png"
+              />
+              <div className={styles.featureContainer}>
                 Promote{" "}
                 <span className={styles.emphasize}>
                   visually stunning content
@@ -42,15 +48,25 @@ const Demonstration: React.FC = () => {
               </div>
             </div>
             <div className={styles.row}>
-              <div>IMAGE</div>
-              <div>
+              <Image
+                width={25}
+                height={25}
+                alt="foster"
+                src="/assets/engagement/foster.png"
+              />
+              <div className={styles.featureContainer}>
                 Foster meaningful interaction{" "}
                 <span className={styles.emphasize}>to sell more!</span>
               </div>
             </div>
-            <div style={{ marginBottom: "40px" }} className={styles.row}>
-              <div>IMAGE</div>
-              <div>
+            <div style={{ marginBottom: "30px" }} className={styles.row}>
+              <Image
+                width={25}
+                height={25}
+                alt="insights"
+                src="/assets/engagement/insights.png"
+              />
+              <div className={styles.featureContainer}>
                 Get <span className={styles.emphasize}>valuable insights</span>{" "}
                 with no effort.
               </div>
