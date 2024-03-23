@@ -56,8 +56,10 @@ const Reels: React.FC = () => {
                 className={styles.authorImage}
                 src="/assets/reviews/author.png"
               />
-              <div>
-                <div>Clark Knight</div>
+              <div className={styles.authorDetails}>
+                <div>
+                  <b>Clark Knight</b>
+                </div>
                 <div>Marketing Executive</div>
               </div>
             </div>

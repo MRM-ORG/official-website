@@ -77,25 +77,40 @@
 
 @media (max-width: 768px) {
   .container {
-    padding: unset;
+    padding: 20px 0;
     grid-template-columns: 1fr;
   }
 
+  .authorDetails {
+    font-size: 14px;
+  }
+
   .heading {
-    font-size: 34px;
+    font-size: 25px;
     line-height: 1.3;
   }
 
+  .description {
+    font-size: 16px;
+  }
+
   .box {
+    gap: 0;
     max-width: 100%;
     width: fit-content;
   }
 
   .content {
+    gap: 5px;
     padding: 24px;
   }
 
   .review {
     padding: 24px;
+    padding-top: 0;
+  }
+
+  .userReview {
+    font-size: 16px;
   }
 }
