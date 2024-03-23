@@ -13,14 +13,14 @@ import Support from "@/components/Support/support";
 import { getTranslator } from "@/i18n";
 import { useEffect } from "react";
 
-interface IMainProps {
-  translate: (key: string) => string;
-  params: {
-    lang: string;
-  };
-}
+// interface IMainProps {
+//   translate: (key: string) => string;
+//   params: {
+//     lang: string;
+//   };
+// }
 
-export default function Main(props: IMainProps) {
+export default function Main(props: any) {
   useEffect(() => {
     const fetchTranslations = async () => {
       const translate = await getTranslator(`${props.params.lang}`);
