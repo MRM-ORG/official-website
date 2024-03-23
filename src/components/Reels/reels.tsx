@@ -2,14 +2,7 @@
 
 import { poppins } from "@/utils/fonts";
 import Image from "next/image";
-import ReactLoading from "react-loading";
 import styles from "./reels.module.css";
-
-const Loader = () => (
-  <div className={styles.loader}>
-    <ReactLoading type="spinningBubbles" color={"#7431f8"} />
-  </div>
-);
 
 const Reels: React.FC = () => {
   return (
