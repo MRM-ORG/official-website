@@ -268,7 +268,7 @@
 @media (max-width: 768px) {
   .pricing {
     height: 100%;
-    padding: 100px 10px;
+    padding: 50px 10px;
   }
 
   .desktopPricing {
