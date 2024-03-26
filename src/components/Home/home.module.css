@@ -280,15 +280,12 @@ section #home {
     padding-bottom: 0;
   }
 
-  .heroImageWrapper {
-    margin-top: 35px;
-  }
-
   .ctas div {
     font-size: 12px;
   }
 
   .heroImageWrapper {
+    margin-top: 0;
     width: 100%;
     min-width: unset;
     min-height: unset;

@@ -10,6 +10,7 @@ import styles from "./home.module.css";
 
 const Home: React.FC = () => {
   const [openVideo, setOpenVideo] = useState(false);
+  const isMobile = window.innerWidth < 768;
 
   useEffect(() => {
     dataLayerPush(getEventPayload(Events.LOADED));
@@ -34,7 +35,9 @@ const Home: React.FC = () => {
         <div className={styles.hero}>
           <div className={styles.heroImageWrapper}>
             <Image
-              src="/assets/banners/hero-1.png"
+              src={`/assets/banners/${
+                isMobile ? "hero-mob.png" : "hero-1.png"
+              }`}
               loading="lazy"
               width={1000}
               height={100}

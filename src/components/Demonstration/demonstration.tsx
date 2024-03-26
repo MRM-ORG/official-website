@@ -35,10 +35,10 @@ const Demonstration: React.FC = () => {
           <div className={styles.features}>
             <div className={styles.row}>
               <Image
-                width={25}
-                height={25}
+                width={34}
+                height={34}
                 alt="promote"
-                src="/assets/engagement/promote.png"
+                src="/assets/engagement/promote-1.png"
               />
               <div className={styles.featureContainer}>
                 Promote{" "}
@@ -49,10 +49,10 @@ const Demonstration: React.FC = () => {
             </div>
             <div className={styles.row}>
               <Image
-                width={25}
-                height={25}
+                width={34}
+                height={27}
                 alt="foster"
-                src="/assets/engagement/foster.png"
+                src="/assets/engagement/foster-1.png"
               />
               <div className={styles.featureContainer}>
                 Foster meaningful interaction{" "}
@@ -61,10 +61,10 @@ const Demonstration: React.FC = () => {
             </div>
             <div style={{ marginBottom: "30px" }} className={styles.row}>
               <Image
-                width={25}
-                height={25}
+                width={34}
+                height={27}
                 alt="insights"
-                src="/assets/engagement/insights.png"
+                src="/assets/engagement/insights-1.png"
               />
               <div className={styles.featureContainer}>
                 Get <span className={styles.emphasize}>valuable insights</span>{" "}

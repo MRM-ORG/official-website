@@ -54,10 +54,10 @@ const Features: React.FC = () => {
           </div>
         </div>
         <div className={styles.partner}>
-          {TOP_FEATURES.map((feature: IFeatureProps) => (
+          {TOP_FEATURES.map((feature: IFeatureProps, index) => (
             <div key={feature.id} className={styles.card}>
               <Image
-                width={200}
+                width={index !== 2 ? 200 : 150}
                 height={35}
                 src={feature.image}
                 alt="partner"
