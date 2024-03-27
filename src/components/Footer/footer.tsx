@@ -9,15 +9,15 @@ const socials = [
     src: "/assets/socials/linkedin-in.svg",
     href: "https://www.linkedin.com/company/paxify-llc/",
   },
-  // {
-  //   alt: "twitter",
-  //   src: "./assets/socials/twitter.svg",
-  //   href: "https://twitter.com/paxify",
-  // },
   {
     alt: "facebook",
     src: "/assets/socials/facebook-f.svg",
     href: "https://www.facebook.com/paxify.llc",
+  },
+  {
+    alt: "instagram",
+    src: "/assets/socials/instagram.svg",
+    href: "https://www.instagram.com/reelifebypax?igsh=MTN2bWI1bWpxa3h6cw==",
   },
 ];
 
@@ -47,8 +47,8 @@ const Footer: React.FC = () => {
               {socials.map((social) => (
                 <a key={social.alt} href={social.href} target="_blank">
                   <Image
-                    width={20}
-                    height={20}
+                    width={25}
+                    height={25}
                     src={social.src}
                     alt={social.alt}
                     className={styles.socialIcon}></Image>
