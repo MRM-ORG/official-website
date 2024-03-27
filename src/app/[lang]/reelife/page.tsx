@@ -33,7 +33,7 @@ export default function Main(props: any) {
   return (
     <main>
       <Home />
-      <Features />
+      {/* <Features /> */}
       <Support />
       <Demonstration />
       <Reels />

@@ -13,10 +13,10 @@ import {
 import Button from "@/atoms/Button/button";
 
 const navLinks = [
-  {
-    name: "Partners",
-    href: "#features",
-  },
+  // {
+  //   name: "Partners",
+  //   href: "#features",
+  // },
   {
     name: "Features",
     href: "#Demonstration",
