@@ -4,17 +4,12 @@ import { dataLayerPush, getEventPayload } from "@/constants/helpers";
 import { Events } from "@/enums/events";
 import { poppins } from "@/utils/fonts";
 import { DASHBOARD_SIGN_UP } from "@/utils/routes";
-import Image from "next/image";
-import { useWindowWidth } from "@react-hook/window-size";
-import { useEffect, useMemo, useState } from "react";
+import { useEffect, useState } from "react";
 import styles from "./home.module.css";
 
 const Home: React.FC = () => {
   const [openVideo, setOpenVideo] = useState(false);
-  const width = useWindowWidth();
-  const isMobile = useMemo(() => width < 768, [width]);
-
-  console.log("isMobile", isMobile);
+  let isMobile = false;
 
   useEffect(() => {
     dataLayerPush(getEventPayload(Events.LOADED));
@@ -38,16 +33,16 @@ const Home: React.FC = () => {
         className={`${styles.backgroundPrimarySoft} ${poppins.className}`}>
         <div className={styles.hero}>
           <div className={styles.heroImageWrapper}>
-            <Image
-              src={`/assets/banners/${
-                isMobile ? "hero-mob.png" : "hero-1.png"
-              }`}
-              loading="lazy"
-              width={1000}
-              height={100}
-              sizes="(max-width: 991px) 100vw, 50vw"
+            <img
+              alt="flux office"
+              className={styles.heroImageMob}
+              src="/assets/banners/hero-mob.png"
+            />
+
+            <img
               alt="flux office"
               className={styles.heroImage}
+              src="/assets/banners/hero-1.png"
             />
           </div>
           <div className={styles.container}>

@@ -48,6 +48,10 @@ section #home {
   right: 0;
 }
 
+.heroImageMob {
+  display: none;
+}
+
 .heroImage {
   top: 0;
   width: 100%;
@@ -254,6 +258,16 @@ section #home {
     line-height: 28px;
     max-width: 320px;
     margin-bottom: 50px;
+  }
+
+  .heroImage {
+    display: none;
+  }
+
+  .heroImageMob {
+    display: block;
+    width: 100%;
+    height: auto;
   }
 }
 
