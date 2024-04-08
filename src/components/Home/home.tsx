@@ -5,12 +5,16 @@ import { Events } from "@/enums/events";
 import { poppins } from "@/utils/fonts";
 import { DASHBOARD_SIGN_UP } from "@/utils/routes";
 import Image from "next/image";
-import { useEffect, useState } from "react";
+import { useWindowWidth } from "@react-hook/window-size";
+import { useEffect, useMemo, useState } from "react";
 import styles from "./home.module.css";
 
 const Home: React.FC = () => {
   const [openVideo, setOpenVideo] = useState(false);
-  const isMobile = window?.innerWidth < 768 ?? false;
+  const width = useWindowWidth();
+  const isMobile = useMemo(() => width < 768, [width]);
+
+  console.log("isMobile", isMobile);
 
   useEffect(() => {
     dataLayerPush(getEventPayload(Events.LOADED));

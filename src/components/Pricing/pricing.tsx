@@ -53,7 +53,7 @@ const SUBSCRIPTIONS: ISubscription[] = [
         ),
       },
       {
-        id: 4,
+        id: 3,
         label: (
           <span>
             Limited <strong>tracking</strong> & <strong>analytics</strong>
@@ -126,7 +126,7 @@ const SUBSCRIPTIONS: ISubscription[] = [
         ),
       },
       {
-        id: 4,
+        id: 3,
         label: (
           <span>
             Richer <strong>tracking</strong> & <strong>analytics</strong>
@@ -198,7 +198,7 @@ const SUBSCRIPTIONS: ISubscription[] = [
         ),
       },
       {
-        id: 4,
+        id: 3,
         label: (
           <span>
             Richer <strong>tracking</strong> & <strong>analytics</strong>
