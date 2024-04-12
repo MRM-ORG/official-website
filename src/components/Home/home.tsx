@@ -36,13 +36,12 @@ const Home: React.FC = () => {
             <img
               alt="flux office"
               className={styles.heroImageMob}
-              src="/assets/banners/hero-mob.png"
+              src="/assets/banners/hero-mob.webp"
             />
-
             <img
               alt="flux office"
               className={styles.heroImage}
-              src="/assets/banners/hero-1.png"
+              src="/assets/banners/hero.webp"
             />
           </div>
           <div className={styles.container}>
