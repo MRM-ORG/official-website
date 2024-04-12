@@ -31,7 +31,7 @@ const navLinks = [
   },
   {
     name: "Demo Store",
-    href: "https://store.reelife.paxify.io",
+    href: "https://demo.reelife.paxify.io",
   },
 ];
 
