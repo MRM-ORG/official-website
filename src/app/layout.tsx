@@ -20,6 +20,12 @@ export default function RootLayout({
   return (
     <html lang="en">
       <head>
+        <title>Reelife by Paxify | Where Dreams Embrace Execution.</title>
+        <meta
+          name="description"
+          content="With Paxify you can enhance your business and engage your audience with fascinating Reels right on your website."
+        />
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
         <script
           id="segment"
           dangerouslySetInnerHTML={{
