@@ -33,6 +33,10 @@ const navLinks = [
     name: "Demo Store",
     href: "https://demo.reelife.paxify.io",
   },
+  {
+    name: "Find us on Shopify!",
+    href: "https://apps.shopify.com/reelife",
+  },
 ];
 
 const Header: React.FC = () => {

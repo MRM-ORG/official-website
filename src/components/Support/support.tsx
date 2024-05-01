@@ -195,7 +195,6 @@ const Support = () => {
                 onChange={(e) => setEmail(e.target.value)}
               />
               <textarea
-                required
                 data-hj-allow
                 placeholder="Tell us how we can help you."
                 value={content}

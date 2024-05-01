@@ -83,11 +83,22 @@
   transform: scale(1.05);
 }
 
+.imageSection {
+  position: relative;
+}
+
+.appStorePromo {
+  right: 25px;
+  bottom: 20px;
+  position: absolute;
+}
+
 .card {
   gap: 12px;
   width: 290px;
   display: flex;
   flex-direction: column;
+  text-decoration: none;
 }
 
 .card:hover {
@@ -140,6 +151,10 @@
 
   .cardContent {
     padding: 10px;
+  }
+
+  .appStorePromo {
+    right: 15px;
   }
 
   .card {

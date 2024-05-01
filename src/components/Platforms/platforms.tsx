@@ -11,6 +11,10 @@ type CardProps = {
   image: string;
   heading: string;
   description?: string;
+  appStore?: {
+    link: string;
+    image: string;
+  };
   type: "PLATFORM" | "SUPPORT";
 };
 
@@ -18,7 +22,11 @@ const PLATFORMS: CardProps[] = [
   {
     image: "/assets/platforms/shopify.png",
     heading: "Shopify",
-    description: "Seamlessly add captivating reels to your Shopify store!",
+    description: "Find us on the Shopify App Store! Click here to install.",
+    appStore: {
+      link: "https://apps.shopify.com/reelife",
+      image: "/assets/platforms/Shopify-App-Store-Badge-Final-White.png",
+    },
     type: "PLATFORM",
   },
   {
@@ -43,16 +51,25 @@ const PLATFORMS: CardProps[] = [
 ];
 
 const Card = (props: any) => {
-  const { image, heading, description, type } = props;
+  const { image, heading, description, type, appStore } = props;
   return (
-    <div className={styles.card}>
-      <Image
-        className={styles.image}
-        width={290}
-        height={320}
-        src={image}
-        alt="platform"
-      />
+    <a href={appStore?.link} className={styles.card}>
+      <div className={styles.imageSection}>
+        <Image
+          className={styles.image}
+          width={290}
+          height={320}
+          src={image}
+          alt="platform"
+        />
+        {appStore && (
+          <img
+            width="80%"
+            className={styles.appStorePromo}
+            src={appStore?.image}
+          />
+        )}
+      </div>
       <div className={styles.cardContent}>
         <div
           className={
@@ -76,7 +93,7 @@ const Card = (props: any) => {
           </div>
         )}
       </div>
-    </div>
+    </a>
   );
 };
 
