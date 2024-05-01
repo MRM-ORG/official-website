@@ -8,6 +8,7 @@ import { poppins } from "@/utils/fonts";
 import {
   DASHBOARD_LOGIN,
   DASHBOARD_SIGN_UP,
+  SHOPIFY_LISTING,
   USER_DASHBOARD,
 } from "@/utils/routes";
 import Button from "@/atoms/Button/button";
@@ -35,7 +36,7 @@ const navLinks = [
   },
   {
     name: "Find us on Shopify!",
-    href: "https://apps.shopify.com/reelife",
+    href: SHOPIFY_LISTING(),
   },
 ];
 

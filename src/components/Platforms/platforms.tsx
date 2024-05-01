@@ -6,6 +6,7 @@ import styles from "./platforms.module.css";
 
 import "swiper/css";
 import "swiper/css/pagination";
+import { SHOPIFY_LISTING } from "@/utils/routes";
 
 type CardProps = {
   image: string;
@@ -24,7 +25,7 @@ const PLATFORMS: CardProps[] = [
     heading: "Shopify",
     description: "Find us on the Shopify App Store! Click here to install.",
     appStore: {
-      link: "https://apps.shopify.com/reelife",
+      link: SHOPIFY_LISTING(),
       image: "/assets/platforms/Shopify-App-Store-Badge-Final-White.png",
     },
     type: "PLATFORM",
