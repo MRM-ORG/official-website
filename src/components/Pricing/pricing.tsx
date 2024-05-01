@@ -103,7 +103,7 @@ const SUBSCRIPTIONS: ISubscription[] = [
     id: 2,
     name: "Starter",
     comingSoon: false,
-    price: "14.99",
+    price: "9.99",
     lookup: {
       monthly: {
         lookupKey: "reelife-starter-standard-monthly",
