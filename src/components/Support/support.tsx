@@ -182,6 +182,7 @@ const Support = () => {
                 required
                 type="text"
                 placeholder="Name"
+                data-hj-allow
                 value={name}
                 onChange={(e) => setName(e.target.value)}
               />
@@ -189,11 +190,13 @@ const Support = () => {
                 required
                 type="email"
                 placeholder="Email"
+                data-hj-allow
                 value={email}
                 onChange={(e) => setEmail(e.target.value)}
               />
               <textarea
                 required
+                data-hj-allow
                 placeholder="Tell us how we can help you."
                 value={content}
                 onChange={(e) => setContent(e.target.value)}
@@ -281,6 +284,7 @@ const Support = () => {
                 type="text"
                 placeholder="Name (Optional)"
                 value={name}
+                data-hj-allow
                 onChange={(e) => setName(e.target.value)}
               />
               <input
@@ -288,10 +292,12 @@ const Support = () => {
                 type="email"
                 placeholder="Email"
                 value={email}
+                data-hj-allow
                 onChange={(e) => setEmail(e.target.value)}
               />
               <textarea
                 required
+                data-hj-allow
                 placeholder="Your Feedback, Suggestions, or Comments. Please be as detailed as possible. Thank you!"
                 value={content}
                 onChange={(e) => setContent(e.target.value)}
