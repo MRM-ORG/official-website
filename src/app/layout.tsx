@@ -25,6 +25,14 @@ export default function RootLayout({
           name="description"
           content="With Paxify you can enhance your business and engage your audience with fascinating Reels right on your website."
         />
+        <script
+          async
+          id="reels-script"
+          src="https://cdn.jsdelivr.net/gh/paxify-llc/builds@latest/reelife/paxify-reelife.js"></script>
+        <link
+          rel="stylesheet"
+          id="reels-stylesheet"
+          href="https://cdn.jsdelivr.net/gh/MRM-ORG/builds@latest/reelife/paxify-reelife.min.css"></link>
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <script
           id="segment"
