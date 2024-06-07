@@ -11,7 +11,7 @@ export const Reelife: React.FC = () => {
           style: 1,
           isPreviewMode: false,
           elementId: "reelife",
-          uid: "HBh0IZzf3XZTRbw5oglPgoCczGJ3",
+          uid: "MqCJYGz4mISSkerq6HiDuOJmdNX2",
           storeId: "000443bd-0b86-43a7-a519-66d31c9558c1",
         });
         circle.render();
