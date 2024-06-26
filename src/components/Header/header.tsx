@@ -1,5 +1,4 @@
 "use client";
-
 import Image from "next/image";
 import Link from "next/link";
 import { LegacyRef, useEffect, useRef, useState } from "react";
@@ -12,6 +11,8 @@ import {
   USER_DASHBOARD,
 } from "@/utils/routes";
 import Button from "@/atoms/Button/button";
+import { dataLayerPush, getEventPayload } from "@/constants/helpers";
+import { Events } from "@/enums/events";
 
 const navLinks = [
   // {
@@ -138,6 +139,13 @@ const Header: React.FC = () => {
     setIsExpanded(!isExapanded);
   };
 
+  const handleLinkClick = (e: any, url: string) => {
+    e.preventDefault();
+    if (url === SHOPIFY_LISTING()) {
+      dataLayerPush(getEventPayload(Events.SHOPIFY_CTA_CLICK));
+    }
+  };
+
   return (
     <div className={poppins.className}>
       <nav className={styles.main}>
@@ -147,11 +155,7 @@ const Header: React.FC = () => {
             {navLinks.map((link) => (
               <li key={link.name}>
                 <Link
-                  // onClick={(e) => {
-                  //   link.name !== "Demo Store"
-                  //     ? handleSmoothScroll(e)
-                  //     : () => {};
-                  // }}
+                  onClick={(e) => handleLinkClick(e, link?.href)}
                   href={link.href}
                   className={`${styles.navLink} ${
                     activeSection === link.href.substring(1)
