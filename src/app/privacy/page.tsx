@@ -32,6 +32,9 @@ export default function Privacy() {
           Store name <br />
           Cookies and Usage Data
           <br />
+          Media (Images and Videos) from Social Media Platforms (Optional and
+          with user consent)
+          <br />
           <br />
           <b>Usage Data:</b> <br />
           We may collect information on how the Service is accessed and used
